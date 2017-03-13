@@ -23,6 +23,7 @@
 #include <sstream> // for debug prints
 #include <unordered_map>
 #include <vector>
+#include <android/log.h>
 
 #include "defines.h"
 #include "suggest/core/layout/geometry_utils.h"
@@ -162,6 +163,26 @@ void ProximityInfoState::initInputParams(const int pointerId, const float maxPoi
         AKLOGI("ProximityState init finished: %d points out of %d", mSampledInputSize, inputSize);
     }
     mHasBeenUpdatedByGeometricInput = isGeometric;
+
+        if(isGeometric) {
+            std::stringstream x_ss, y_ss;
+            for(int i = 0; i < mSampledInputSize; i++) {
+                x_ss << mSampledInputXs[i] << ", ";
+                y_ss << mSampledInputYs[i] << ", ";
+
+                std::stringstream char_ss;
+                for(auto it = mCharProbabilities[i].begin(); it != mCharProbabilities[i].end(); ++it) {
+                    if(it->first == -1) {
+                        char_ss << "SKIP: " << it->second << ", ";
+                    } else {
+                        char_ss << (char)(proximityInfo->getCodePointOf(it->first)) << ": " << it->second << ", ";
+                    }
+                }
+                MSJLOGI("{%s}", char_ss.str().c_str());
+            }
+            MSJLOGI("sample_x: %s", x_ss.str().c_str());
+            MSJLOGI("sample_y: %s", y_ss.str().c_str());
+        }
 }
 
 // This function basically converts from a length to an edit distance. Accordingly, it's obviously

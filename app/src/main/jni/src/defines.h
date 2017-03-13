@@ -92,6 +92,11 @@ AK_FORCE_INLINE static int intArrayToCharArray(const int *const source, const in
     return di;
 }
 
+#include <android/log.h>
+#define MSJLOGE(fmt, ...) __android_log_print(ANDROID_LOG_ERROR, "msj", fmt, ##__VA_ARGS__)
+#define MSJLOGI(fmt, ...) __android_log_print(ANDROID_LOG_INFO, "msj", fmt, ##__VA_ARGS__)
+
+
 #if defined(FLAG_DO_PROFILE) || defined(FLAG_DBG)
 #if defined(__ANDROID__)
 #include <android/log.h>
@@ -336,5 +341,6 @@ typedef enum {
     CT_NEW_WORD_SPACE_OMISSION,
     // Create new word with space substitution
     CT_NEW_WORD_SPACE_SUBSTITUTION,
+    CT_SKIP,
 } CorrectionType;
 #endif // LATINIME_DEFINES_H

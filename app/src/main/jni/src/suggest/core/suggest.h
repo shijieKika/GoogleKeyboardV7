@@ -50,7 +50,7 @@ class Suggest : public SuggestInterface {
     void getSuggestions(ProximityInfo *pInfo, void *traverseSession, int *inputXs, int *inputYs,
             int *times, int *pointerIds, int *inputCodePoints, int inputSize,
             const float weightOfLangModelVsSpatialModel,
-            SuggestionResults *const outSuggestionResults) const;
+            SuggestionResults *const outSuggestionResults, bool isGesture) const;
 
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(Suggest);
@@ -72,6 +72,17 @@ class Suggest : public SuggestInterface {
             DicNode *childDicNode) const;
     void processDicNodeAsMatch(DicTraverseSession *traverseSession,
             DicNode *childDicNode) const;
+
+
+    void expandCurrentDicNodesGesture(DicTraverseSession *traverseSession) const;
+    void processDicNodeAsOmissionGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
+    void processDicNodeAsMatchGesture(DicTraverseSession *traverseSession,
+                               DicNode *childDicNode) const;
+    void processDicNodeAsSkipGesture(DicTraverseSession *traverseSession, DicNode *childDicNode) const;
+    void processExpandedDicNodeGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
+    void processTerminalDicNodeGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
+    void weightChildNodeGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
+
 
     static const int MIN_CONTINUOUS_SUGGESTION_INPUT_SIZE;
 

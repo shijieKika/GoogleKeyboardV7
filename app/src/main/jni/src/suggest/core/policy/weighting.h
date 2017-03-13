@@ -34,6 +34,11 @@ class Weighting {
             const DicTraverseSession *const traverseSession,
             const DicNode *const parentDicNode, DicNode *const dicNode,
             MultiBigramMap *const multiBigramMap);
+    static void addCostAndForwardInputIndexGesture(const Weighting *const weighting,
+                                            const CorrectionType correctionType,
+                                            const DicTraverseSession *const traverseSession,
+                                            const DicNode *const parentDicNode, DicNode *const dicNode,
+                                            MultiBigramMap *const multiBigramMap);
 
  protected:
     virtual float getTerminalSpatialCost(const DicTraverseSession *const traverseSession,
@@ -85,6 +90,9 @@ class Weighting {
     virtual float getSpaceSubstitutionCost(const DicTraverseSession *const traverseSession,
             const DicNode *const dicNode) const = 0;
 
+    virtual float getSkipCost(const DicTraverseSession *const traverseSession,
+                              const DicNode *const dicNode) const = 0;
+
     virtual ErrorTypeUtils::ErrorType getErrorType(const CorrectionType correctionType,
             const DicTraverseSession *const traverseSession,
             const DicNode *const parentDicNode, const DicNode *const dicNode) const = 0;
@@ -103,6 +111,12 @@ class Weighting {
             const CorrectionType correctionType, const DicTraverseSession *const traverseSession,
             const DicNode *const parentDicNode, const DicNode *const dicNode,
             MultiBigramMap *const multiBigramMap);
+
+    static float getLanguageCostGesture(const Weighting *const weighting,
+                                        const CorrectionType correctionType, const DicTraverseSession *const traverseSession,
+                                        const DicNode *const parentDicNode, const DicNode *const dicNode,
+                                        MultiBigramMap *const multiBigramMap);
+
     // TODO: Move to TypingWeighting and GestureWeighting?
     static int getForwardInputCount(const CorrectionType correctionType);
 };
