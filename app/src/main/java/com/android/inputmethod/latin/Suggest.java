@@ -69,8 +69,11 @@ public final class Suggest {
     private float mAutoCorrectionThreshold;
     private float mPlausibilityThreshold;
 
+    private GestureRecord mGestureRecord;
+
     public Suggest(final DictionaryFacilitator dictionaryFacilitator) {
         mDictionaryFacilitator = dictionaryFacilitator;
+        mGestureRecord = new GestureRecord("/sdcard/gesture_trace.txt");
     }
 
     /**
@@ -104,6 +107,7 @@ public final class Suggest {
             getSuggestedWordsForBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, sequenceNumber, callback);
         } else {
+            mGestureRecord.flush();
             getSuggestedWordsForNonBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, isCorrectionEnabled,
                     sequenceNumber, callback);
@@ -343,6 +347,8 @@ public final class Suggest {
                 false /* willAutoCorrect */,
                 false /* isObsoleteSuggestions */,
                 inputStyle, sequenceNumber));
+
+        mGestureRecord.putRecord(suggestionsContainer.get(0).mWord, wordComposer.getComposedDataSnapshot());
     }
 
     private static ArrayList<SuggestedWordInfo> getSuggestionsInfoListWithDebugInfo(
