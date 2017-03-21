@@ -217,15 +217,14 @@ static inline void profile(const CorrectionType correctionType, DicNode *const n
         inputStateG.mNeedsToUpdateInputStateG = false; // Don't use input info by default
         const float spatialCost = Weighting::getSpatialCost(weighting, correctionType,
                                                             traverseSession, parentDicNode, dicNode, &inputStateG);
-        const float languageCost = Weighting::getLanguageCost(weighting, correctionType,
+        const float languageCost = Weighting::getLanguageCostGesture(weighting, correctionType,
                                                                      traverseSession, parentDicNode, dicNode, multiBigramMap);
         const ErrorTypeUtils::ErrorType errorType = weighting->getErrorType(correctionType,
                                                                             traverseSession, parentDicNode, dicNode);
-        //profile(correctionType, dicNode);
         if (inputStateG.mNeedsToUpdateInputStateG) {
             dicNode->updateInputIndexG(&inputStateG);
         } else {
-            dicNode->forwardInputIndex(0, getForwardInputCount(correctionType), false);
+            dicNode->forwardInputIndex(0 /*pointerId*/, getForwardInputCount(correctionType), false);
         }
         dicNode->addCost(spatialCost, languageCost, weighting->needsToNormalizeCompoundDistance(),
                          inputSize, errorType);
@@ -247,7 +246,10 @@ static inline void profile(const CorrectionType correctionType, DicNode *const n
             case CT_COMPLETION:
                 return 0.0f;
             case CT_TERMINAL: {
-                return weighting->getTerminalLanguageCost(traverseSession, dicNode, 0);
+                const float languageImprobability =
+                        DicNodeUtils::getBigramNodeImprobability(
+                                traverseSession->getDictionaryStructurePolicy(), dicNode, multiBigramMap);
+                return weighting->getTerminalLanguageCost(traverseSession, dicNode, languageImprobability);
             }
             case CT_TERMINAL_INSERTION:
                 return 0.0f;

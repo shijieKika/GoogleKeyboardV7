@@ -92,6 +92,7 @@ AK_FORCE_INLINE static int intArrayToCharArray(const int *const source, const in
     return di;
 }
 
+#define DEBUG_MSJ true
 #include <android/log.h>
 #define MSJLOGE(fmt, ...) __android_log_print(ANDROID_LOG_ERROR, "msj", fmt, ##__VA_ARGS__)
 #define MSJLOGI(fmt, ...) __android_log_print(ANDROID_LOG_INFO, "msj", fmt, ##__VA_ARGS__)

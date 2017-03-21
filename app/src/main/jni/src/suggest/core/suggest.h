@@ -50,7 +50,7 @@ class Suggest : public SuggestInterface {
     void getSuggestions(ProximityInfo *pInfo, void *traverseSession, int *inputXs, int *inputYs,
             int *times, int *pointerIds, int *inputCodePoints, int inputSize,
             const float weightOfLangModelVsSpatialModel,
-            SuggestionResults *const outSuggestionResults, bool isGesture) const;
+            SuggestionResults *const outSuggestionResults) const;
 
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(Suggest);
@@ -78,7 +78,7 @@ class Suggest : public SuggestInterface {
     void processDicNodeAsOmissionGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
     void processDicNodeAsMatchGesture(DicTraverseSession *traverseSession,
                                DicNode *childDicNode) const;
-    void processDicNodeAsSkipGesture(DicTraverseSession *traverseSession, DicNode *childDicNode) const;
+    void processDicNodeAsSkipGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
     void processExpandedDicNodeGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
     void processTerminalDicNodeGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;
     void weightChildNodeGesture(DicTraverseSession *traverseSession, DicNode *dicNode) const;

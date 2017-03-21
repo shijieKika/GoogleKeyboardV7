@@ -44,6 +44,11 @@ class TypingTraversal : public Traversal {
                 < ScoringParams::NORMALIZED_SPATIAL_DISTANCE_THRESHOLD_FOR_EDIT;
     }
 
+    bool isSkip(const DicTraverseSession *const traverseSession,
+                const DicNode *const dicNode) const {
+        return false;
+    }
+
     AK_FORCE_INLINE bool isOmission(const DicTraverseSession *const traverseSession,
             const DicNode *const dicNode, const DicNode *const childDicNode,
             const bool allowsErrorCorrections) const {

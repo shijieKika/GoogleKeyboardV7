@@ -17,6 +17,7 @@
 #include "suggest/core/session/dic_traverse_session.h"
 #include "suggest/core/suggest_options.h"
 #include "suggest/policyimpl/typing/scoring_params.h"
+#include "suggest/policyimpl/gesture/scoring_params_g.h"
 #include "utils/char_utils.h"
 
 namespace latinime {
@@ -24,16 +25,37 @@ namespace latinime {
     public:
         static const GestureTraversal *getInstance() { return &sInstance; }
 
-        AK_FORCE_INLINE int getMaxPointerCount() const {
+        int getMaxPointerCount() const {
             return MAX_POINTER_COUNT_G;
         }
 
-        AK_FORCE_INLINE bool allowsErrorCorrections(const DicNode *const dicNode) const {
-            return dicNode->getNormalizedSpatialDistance()
-                   < ScoringParams::NORMALIZED_SPATIAL_DISTANCE_THRESHOLD_FOR_EDIT;
+        float getMaxSpatialDistance() const {
+            return ScoringParams::MAX_SPATIAL_DISTANCE;
         }
 
-        AK_FORCE_INLINE bool isOmission(const DicTraverseSession *const traverseSession,
+        int getDefaultExpandDicNodeSize() const {
+            return DicNodeVector::DEFAULT_NODES_SIZE_FOR_OPTIMIZATION;
+        }
+
+        bool allowsErrorCorrections(const DicNode *const dicNode) const {
+            return dicNode->getNormalizedSpatialDistance()
+                   < ScoringParamsG::NORMALIZED_SPATIAL_DISTANCE_THRESHOLD_FOR_EDIT;
+        }
+
+        bool isSkip(const DicTraverseSession *const traverseSession,
+                    const DicNode *const dicNode) const {
+            const int inputSize = traverseSession->getInputSize();
+            const int point0Index = dicNode->getInputIndex(0);
+            const float probability = traverseSession->getProximityInfoState(0)->getProbability(point0Index, NOT_AN_INDEX);
+            if((point0Index > 0)
+               && (point0Index < inputSize)
+               && (probability < ScoringParamsG::THRESHOLD_FOR_SKIP)) {
+                return true;
+            }
+            return false;
+        }
+
+        bool isOmission(const DicTraverseSession *const traverseSession,
                                         const DicNode *const dicNode, const DicNode *const childDicNode,
                                         const bool allowsErrorCorrections) const {
             if (!CORRECT_OMISSION) {
@@ -62,50 +84,58 @@ namespace latinime {
             return (currentBaseLowerCodePoint != typedBaseLowerCodePoint);
         }
 
+        ProximityType getProximityType(
+                const DicTraverseSession *const traverseSession, const DicNode *const dicNode,
+                const DicNode *const childDicNode) const {
+            return traverseSession->getProximityInfoState(0)->getProximityTypeG(
+                    dicNode->getInputIndex(0), childDicNode->getNodeCodePoint());
+        }
+
+        int getMaxCacheSize(const int inputSize, const float weightForLocale) const {
+            if (inputSize <= 1) {
+                return ScoringParamsG::MAX_CACHE_DIC_NODE_SIZE_FOR_SINGLE_POINT;
+            }
+            if (weightForLocale < ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SMALL_CACHE_SIZE) {
+                return ScoringParams::MAX_CACHE_DIC_NODE_SIZE_FOR_LOW_PROBABILITY_LOCALE;
+            }
+            return ScoringParamsG::MAX_CACHE_DIC_NODE_SIZE;
+        }
+
+        int getTerminalCacheSize() const {
+            return MAX_RESULTS;
+        }
+
+        bool isPossibleOmissionChildNode(
+                const DicTraverseSession *const traverseSession, const DicNode *const parentDicNode,
+                const DicNode *const dicNode) const {
+            const ProximityType proximityType =
+                    getProximityType(traverseSession, parentDicNode, dicNode);
+            if (!ProximityInfoUtils::isMatchOrProximityChar(proximityType)) {
+                return false;
+            }
+            return true;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         AK_FORCE_INLINE bool isSpaceSubstitutionTerminal(
                 const DicTraverseSession *const traverseSession, const DicNode *const dicNode) const {
-            if (!CORRECT_NEW_WORD_SPACE_SUBSTITUTION) {
-                return false;
-            }
-            if (traverseSession->getSuggestOptions()->weightForLocale()
-                < ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SPACE_SUBSTITUTION) {
-                // Space substitution is heavy, so we skip doing it if the weight for this language
-                // is low because we anticipate the suggestions out of this dictionary are not for
-                // the language the user intends to type in.
-                return false;
-            }
-            if (!canDoLookAheadCorrection(traverseSession, dicNode)) {
-                return false;
-            }
-            const int point0Index = dicNode->getInputIndex(0);
-            return dicNode->isTerminalDicNode()
-                   && traverseSession->getProximityInfoState(0)->
-                    hasSpaceProximity(point0Index);
+            return false;
         }
 
         AK_FORCE_INLINE bool isSpaceOmissionTerminal(
                 const DicTraverseSession *const traverseSession, const DicNode *const dicNode) const {
-            if (!CORRECT_NEW_WORD_SPACE_OMISSION) {
-                return false;
-            }
-            if (traverseSession->getSuggestOptions()->weightForLocale()
-                < ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SPACE_OMISSION) {
-                // Space omission is heavy, so we skip doing it if the weight for this language
-                // is low because we anticipate the suggestions out of this dictionary are not for
-                // the language the user intends to type in.
-                return false;
-            }
-            const int inputSize = traverseSession->getInputSize();
-            // TODO: Don't refer to isCompletion?
-            if (dicNode->isCompletion(inputSize)) {
-                return false;
-            }
-            if (!dicNode->isTerminalDicNode()) {
-                return false;
-            }
-            const int16_t pointIndex = dicNode->getInputIndex(0);
-            return pointIndex <= inputSize && !dicNode->isTotalInputSizeExceedingLimit()
-                   && !dicNode->shouldBeFilteredBySafetyNetForBigram();
+            return false;
         }
 
         AK_FORCE_INLINE bool shouldDepthLevelCache(
@@ -125,49 +155,15 @@ namespace latinime {
             return dicNode->canDoLookAheadCorrection(inputSize);
         }
 
-        AK_FORCE_INLINE ProximityType getProximityType(
-                const DicTraverseSession *const traverseSession, const DicNode *const dicNode,
-                const DicNode *const childDicNode) const {
-            return traverseSession->getProximityInfoState(0)->getProximityTypeG(
-                    dicNode->getInputIndex(0), childDicNode->getNodeCodePoint());
-        }
-
         AK_FORCE_INLINE bool needsToTraverseAllUserInput() const {
             return true;
         }
 
-        AK_FORCE_INLINE float getMaxSpatialDistance() const {
-            return ScoringParams::MAX_SPATIAL_DISTANCE;
-        }
 
-        AK_FORCE_INLINE int getDefaultExpandDicNodeSize() const {
-            return DicNodeVector::DEFAULT_NODES_SIZE_FOR_OPTIMIZATION;
-        }
 
-        AK_FORCE_INLINE int getMaxCacheSize(const int inputSize, const float weightForLocale) const {
-            if (inputSize <= 1) {
-                return ScoringParams::MAX_CACHE_DIC_NODE_SIZE_FOR_SINGLE_POINT;
-            }
-            if (weightForLocale < ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SMALL_CACHE_SIZE) {
-                return ScoringParams::MAX_CACHE_DIC_NODE_SIZE_FOR_LOW_PROBABILITY_LOCALE;
-            }
-            return ScoringParams::MAX_CACHE_DIC_NODE_SIZE;
-        }
 
-        AK_FORCE_INLINE int getTerminalCacheSize() const {
-            return MAX_RESULTS;
-        }
 
-        AK_FORCE_INLINE bool isPossibleOmissionChildNode(
-                const DicTraverseSession *const traverseSession, const DicNode *const parentDicNode,
-                const DicNode *const dicNode) const {
-            const ProximityType proximityType =
-                    getProximityType(traverseSession, parentDicNode, dicNode);
-            if (!ProximityInfoUtils::isMatchOrProximityChar(proximityType)) {
-                return false;
-            }
-            return true;
-        }
+
 
         AK_FORCE_INLINE bool isGoodToTraverseNextWord(const DicNode *const dicNode,
                                                       const int probability) const {
@@ -183,8 +179,6 @@ namespace latinime {
     private:
         DISALLOW_COPY_AND_ASSIGN(GestureTraversal);
         static const bool CORRECT_OMISSION;
-        static const bool CORRECT_NEW_WORD_SPACE_SUBSTITUTION;
-        static const bool CORRECT_NEW_WORD_SPACE_OMISSION;
         static const GestureTraversal sInstance;
 
         GestureTraversal() {}

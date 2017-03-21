@@ -6,7 +6,5 @@
 
 namespace latinime {
     const bool GestureTraversal::CORRECT_OMISSION = true;
-    const bool GestureTraversal::CORRECT_NEW_WORD_SPACE_SUBSTITUTION = true;
-    const bool GestureTraversal::CORRECT_NEW_WORD_SPACE_OMISSION = true;
     const GestureTraversal GestureTraversal::sInstance;
 }  // namespace latinime

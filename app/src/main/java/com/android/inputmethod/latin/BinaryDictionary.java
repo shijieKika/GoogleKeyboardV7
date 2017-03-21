@@ -302,17 +302,22 @@ public final class BinaryDictionary extends Dictionary {
             session.mInputOutputWeightOfLangModelVsSpatialModel[0] =
                     Dictionary.NOT_A_WEIGHT_OF_LANG_MODEL_VS_SPATIAL_MODEL;
         }
-        // TOOD: Pass multiple previous words information for n-gram.
-        getSuggestionsNative(mNativeDict, proximityInfoHandle,
-                getTraverseSession(sessionId).getSession(), inputPointers.getXCoordinates(),
-                inputPointers.getYCoordinates(), inputPointers.getTimes(),
-                inputPointers.getPointerIds(), session.mInputCodePoints, inputSize,
-                session.mNativeSuggestOptions.getOptions(), session.mPrevWordCodePointArrays,
-                session.mIsBeginningOfSentenceArray, ngramContext.getPrevWordCount(),
-                session.mOutputSuggestionCount, session.mOutputCodePoints, session.mOutputScores,
-                session.mSpaceIndices, session.mOutputTypes,
-                session.mOutputAutoCommitFirstWordConfidence,
-                session.mInputOutputWeightOfLangModelVsSpatialModel);
+
+        if(mDictType == Dictionary.TYPE_MAIN) {
+            // TOOD: Pass multiple previous words information for n-gram.
+            getSuggestionsNative(mNativeDict, proximityInfoHandle,
+                    getTraverseSession(sessionId).getSession(), inputPointers.getXCoordinates(),
+                    inputPointers.getYCoordinates(), inputPointers.getTimes(),
+                    inputPointers.getPointerIds(), session.mInputCodePoints, inputSize,
+                    session.mNativeSuggestOptions.getOptions(), session.mPrevWordCodePointArrays,
+                    session.mIsBeginningOfSentenceArray, ngramContext.getPrevWordCount(),
+                    session.mOutputSuggestionCount, session.mOutputCodePoints, session.mOutputScores,
+                    session.mSpaceIndices, session.mOutputTypes,
+                    session.mOutputAutoCommitFirstWordConfidence,
+                    session.mInputOutputWeightOfLangModelVsSpatialModel);
+        }
+
+
         if (inOutWeightOfLangModelVsSpatialModel != null) {
             inOutWeightOfLangModelVsSpatialModel[0] =
                     session.mInputOutputWeightOfLangModelVsSpatialModel[0];

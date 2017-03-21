@@ -15,6 +15,7 @@
 #include "suggest/core/policy/weighting.h"
 #include "suggest/core/session/dic_traverse_session.h"
 #include "suggest/policyimpl/typing/scoring_params.h"
+#include "suggest/policyimpl/gesture/scoring_params_g.h"
 #include "utils/char_utils.h"
 
 namespace latinime {
@@ -31,14 +32,31 @@ namespace latinime {
         float getTerminalSpatialCost(const DicTraverseSession *const traverseSession,
                                      const DicNode *const dicNode) const {
             const int point0index = dicNode->getInputIndex(0);
+            const int tmpInputSize = traverseSession->getInputSize();
             float cost = 0;
-            for (int i = point0index; i < traverseSession->getInputSize(); i++) {
+            for (int i = point0index; i < tmpInputSize; i++) {
                 cost += traverseSession->getProximityInfoState(0)->getProbability(i, NOT_AN_INDEX);
             }
-            if (point0index > traverseSession->getInputSize()) {
-                cost += 2 * (point0index - traverseSession->getInputSize());
+            if (point0index > tmpInputSize) {
+                cost += (point0index - tmpInputSize) * ScoringParamsG::DISTANCE_WEIGHT_EXCEEDING_INPUT_SIZE;
             }
 
+            return cost;
+        }
+
+        float getTerminalLanguageCost(const DicTraverseSession *const traverseSession,
+                                      const DicNode *const dicNode, const float dicNodeLanguageImprobability) const {
+            return dicNodeLanguageImprobability * ScoringParamsG::DISTANCE_WEIGHT_LANGUAGE;
+        }
+
+        float getCompletionCost(const DicTraverseSession *const traverseSession,
+                                const DicNode *const dicNode) const {
+            // The auto completion starts when the input index is same as the input size
+            const bool firstCompletion = dicNode->getInputIndex(0)
+                                         == traverseSession->getInputSize();
+            // TODO: Change the cost for the first completion for the gesture?
+            const float cost = firstCompletion ? ScoringParamsG::COST_FIRST_COMPLETION
+                                               : ScoringParamsG::COST_COMPLETION;
             return cost;
         }
 
@@ -55,18 +73,15 @@ namespace latinime {
             const bool isZeroCostOmission = parentDicNode->isZeroCostOmission();
             const bool isIntentionalOmission = parentDicNode->canBeIntentionalOmission();
             const bool sameCodePoint = dicNode->isSameNodeCodePoint(parentDicNode);
-            // If the traversal omitted the first letter then the dicNode should now be on the second.
-            const bool isFirstLetterOmission = dicNode->getNodeCodePointCount() == 2;
+
             float cost = 0.0f;
             if (isZeroCostOmission) {
                 cost = 0.0f;
             } else if (isIntentionalOmission) {
                 cost = ScoringParams::INTENTIONAL_OMISSION_COST;
-            } else if (isFirstLetterOmission) {
-                cost = ScoringParams::OMISSION_COST_FIRST_CHAR;
             } else {
-                cost = sameCodePoint ? ScoringParams::OMISSION_COST_SAME_CHAR
-                                     : ScoringParams::OMISSION_COST;
+                cost = sameCodePoint ? ScoringParamsG::OMISSION_COST_SAME_CHAR
+                                     : ScoringParamsG::OMISSION_COST;
             }
             return cost;
         }
@@ -141,22 +156,6 @@ namespace latinime {
             return DicNodeUtils::getBigramNodeImprobability(
                     traverseSession->getDictionaryStructurePolicy(),
                     dicNode, multiBigramMap) * ScoringParams::DISTANCE_WEIGHT_LANGUAGE;
-        }
-
-        float getCompletionCost(const DicTraverseSession *const traverseSession,
-                                const DicNode *const dicNode) const {
-            // The auto completion starts when the input index is same as the input size
-            const bool firstCompletion = dicNode->getInputIndex(0)
-                                         >= traverseSession->getInputSize();
-            // TODO: Change the cost for the first completion for the gesture?
-            const float cost = firstCompletion ? ScoringParams::COST_FIRST_COMPLETION
-                                               : ScoringParams::COST_COMPLETION;
-            return cost;
-        }
-
-        float getTerminalLanguageCost(const DicTraverseSession *const traverseSession,
-                                      const DicNode *const dicNode, const float dicNodeLanguageImprobability) const {
-            return dicNodeLanguageImprobability * ScoringParams::DISTANCE_WEIGHT_LANGUAGE;
         }
 
         float getTerminalInsertionCost(const DicTraverseSession *const traverseSession,

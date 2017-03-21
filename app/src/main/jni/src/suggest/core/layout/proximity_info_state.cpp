@@ -164,8 +164,9 @@ void ProximityInfoState::initInputParams(const int pointerId, const float maxPoi
     }
     mHasBeenUpdatedByGeometricInput = isGeometric;
 
-        if(isGeometric) {
+        if(DEBUG_MSJ && isGeometric && mSampledInputSize && false) {
             std::stringstream x_ss, y_ss;
+
             for(int i = 0; i < mSampledInputSize; i++) {
                 x_ss << mSampledInputXs[i] << ", ";
                 y_ss << mSampledInputYs[i] << ", ";
@@ -173,13 +174,14 @@ void ProximityInfoState::initInputParams(const int pointerId, const float maxPoi
                 std::stringstream char_ss;
                 for(auto it = mCharProbabilities[i].begin(); it != mCharProbabilities[i].end(); ++it) {
                     if(it->first == -1) {
-                        char_ss << "SKIP: " << it->second << ", ";
+                        char_ss << "'SKIP': " << it->second << ", ";
                     } else {
-                        char_ss << (char)(proximityInfo->getCodePointOf(it->first)) << ": " << it->second << ", ";
+                        char_ss << "'" << (char)(proximityInfo->getCodePointOf(it->first)) << "': " << it->second << ", ";
                     }
                 }
                 MSJLOGI("{%s}", char_ss.str().c_str());
             }
+
             MSJLOGI("sample_x: %s", x_ss.str().c_str());
             MSJLOGI("sample_y: %s", y_ss.str().c_str());
         }

@@ -54,7 +54,7 @@ void Dictionary::getSuggestions(ProximityInfo *proximityInfo, DicTraverseSession
     const auto &suggest = suggestOptions->isGesture() ? mGestureSuggest : mTypingSuggest;
     suggest->getSuggestions(proximityInfo, traverseSession, xcoordinates,
                             ycoordinates, times, pointerIds, inputCodePoints, inputSize,
-                            weightOfLangModelVsSpatialModel, outSuggestionResults, suggestOptions->isGesture());
+                            weightOfLangModelVsSpatialModel, outSuggestionResults);
 }
 
 Dictionary::NgramListenerForPrediction::NgramListenerForPrediction(
