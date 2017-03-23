@@ -23,6 +23,7 @@ import static com.android.inputmethod.latin.define.DecoderSpecificConstants.SHOU
 
 import com.android.inputmethod.keyboard.Keyboard;
 import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
+import com.android.inputmethod.latin.common.ComposedData;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.common.StringUtils;
 import com.android.inputmethod.latin.define.DebugFlags;
@@ -31,8 +32,10 @@ import com.android.inputmethod.latin.utils.AutoCorrectionUtils;
 import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
 import com.android.inputmethod.latin.utils.SuggestionResults;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
@@ -68,9 +71,11 @@ public final class Suggest {
 
     private float mAutoCorrectionThreshold;
     private float mPlausibilityThreshold;
+    private GestureRecord mGestureRecord;
 
     public Suggest(final DictionaryFacilitator dictionaryFacilitator) {
         mDictionaryFacilitator = dictionaryFacilitator;
+        mGestureRecord = new GestureRecord("/sdcard/gesture_trace.txt");
     }
 
     /**
@@ -95,18 +100,25 @@ public final class Suggest {
         public void onGetSuggestedWords(final SuggestedWords suggestedWords);
     }
 
+    boolean mTest = true;
     public void getSuggestedWords(final WordComposer wordComposer,
             final NgramContext ngramContext, final Keyboard keyboard,
             final SettingsValuesForSuggestion settingsValuesForSuggestion,
             final boolean isCorrectionEnabled, final int inputStyle, final int sequenceNumber,
             final OnGetSuggestedWordsCallback callback) {
-        if (wordComposer.isBatchMode()) {
+        if(mTest) {
+            getTest(ngramContext, keyboard,
+                    settingsValuesForSuggestion, inputStyle, sequenceNumber);
+            mTest = false;
+        } else if (wordComposer.isBatchMode()) {
             getSuggestedWordsForBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, sequenceNumber, callback);
+            mTest = true;
         } else {
             getSuggestedWordsForNonBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, isCorrectionEnabled,
                     sequenceNumber, callback);
+            mTest = true;
         }
     }
 
@@ -282,6 +294,49 @@ public final class Suggest {
                 isTypedWordValid,
                 hasAutoCorrection /* willAutoCorrect */,
                 false /* isObsoleteSuggestions */, inputStyle, sequenceNumber));
+    }
+
+    private void getTest(final NgramContext ngramContext, final Keyboard keyboard,
+                         final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                         final int inputStyle, final int sequenceNumber) {
+        Iterator it = mGestureRecord.iterator();
+        int numTotal = 0;
+        int numWrong = 0;
+        GestureRecord caseWrong = new GestureRecord("/sdcard/gesture_wrong.txt");
+        while(it.hasNext()) {
+            numTotal++;
+            GestureRecord.PairN2T data_ = (GestureRecord.PairN2T)it.next();
+
+            final SuggestionResults suggestionResults = mDictionaryFacilitator.getSuggestionResults(
+                    data_.mData, ngramContext, keyboard,
+                    settingsValuesForSuggestion, SESSION_ID_GESTURE, inputStyle);
+            final ArrayList<SuggestedWordInfo> suggestionsContainer =
+                    new ArrayList<>(suggestionResults);
+
+            if(suggestionsContainer.size() == 0) {
+                numWrong++;
+                continue;
+            }
+            if(!data_.mName.equals(suggestionsContainer.get(0).mWord)) {
+                numWrong++;
+                caseWrong.putRecord(data_.mName, data_.mData);
+            }
+
+        }
+        caseWrong.flush();
+        try {
+            int numRight = numTotal - numWrong;
+            FileOutputStream fout_ = new FileOutputStream("/sdcard/gesture_result.txt");
+            String rel = "Total: " + Integer.toString(numTotal) + "\nRight: " + Integer.toString(numRight) + "\nPercent: " + Double.toString( numRight/ (double)numTotal) + "\n";
+            fout_.write(rel.getBytes());
+            fout_.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
     // Retrieves suggestions for the batch input
