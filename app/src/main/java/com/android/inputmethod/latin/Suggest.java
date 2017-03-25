@@ -25,8 +25,10 @@ import com.android.inputmethod.keyboard.Keyboard;
 import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
 import com.android.inputmethod.latin.common.ComposedData;
 import com.android.inputmethod.latin.common.Constants;
+import com.android.inputmethod.latin.common.InputPointers;
 import com.android.inputmethod.latin.common.StringUtils;
 import com.android.inputmethod.latin.define.DebugFlags;
+import com.android.inputmethod.latin.settings.GestureSettingsFragment;
 import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
 import com.android.inputmethod.latin.utils.AutoCorrectionUtils;
 import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
@@ -71,6 +73,7 @@ public final class Suggest {
 
     private float mAutoCorrectionThreshold;
     private float mPlausibilityThreshold;
+
     private GestureRecord mGestureRecord;
 
     public Suggest(final DictionaryFacilitator dictionaryFacilitator) {
@@ -100,25 +103,26 @@ public final class Suggest {
         public void onGetSuggestedWords(final SuggestedWords suggestedWords);
     }
 
-    boolean mTest = true;
     public void getSuggestedWords(final WordComposer wordComposer,
-            final NgramContext ngramContext, final Keyboard keyboard,
-            final SettingsValuesForSuggestion settingsValuesForSuggestion,
-            final boolean isCorrectionEnabled, final int inputStyle, final int sequenceNumber,
-            final OnGetSuggestedWordsCallback callback) {
-        if(mTest) {
-            getTest(ngramContext, keyboard,
-                    settingsValuesForSuggestion, inputStyle, sequenceNumber);
-            mTest = false;
-        } else if (wordComposer.isBatchMode()) {
+                                  final NgramContext ngramContext, final Keyboard keyboard,
+                                  final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                  final boolean isCorrectionEnabled, final int inputStyle, final int sequenceNumber,
+                                  final OnGetSuggestedWordsCallback callback) {
+
+        // test
+        if(true) {
+            getTest(keyboard, settingsValuesForSuggestion, inputStyle);
+            return;
+        }
+
+        if (wordComposer.isBatchMode()) {
             getSuggestedWordsForBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, sequenceNumber, callback);
-            mTest = true;
         } else {
+            mGestureRecord.flushTrace();
             getSuggestedWordsForNonBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, isCorrectionEnabled,
                     sequenceNumber, callback);
-            mTest = true;
         }
     }
 
@@ -162,10 +166,10 @@ public final class Suggest {
     // Retrieves suggestions for non-batch input (typing, recorrection, predictions...)
     // and calls the callback function with the suggestions.
     private void getSuggestedWordsForNonBatchInput(final WordComposer wordComposer,
-            final NgramContext ngramContext, final Keyboard keyboard,
-            final SettingsValuesForSuggestion settingsValuesForSuggestion,
-            final int inputStyleIfNotPrediction, final boolean isCorrectionEnabled,
-            final int sequenceNumber, final OnGetSuggestedWordsCallback callback) {
+                                                   final NgramContext ngramContext, final Keyboard keyboard,
+                                                   final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                   final int inputStyleIfNotPrediction, final boolean isCorrectionEnabled,
+                                                   final int sequenceNumber, final OnGetSuggestedWordsCallback callback) {
         final String typedWordString = wordComposer.getTypedWord();
         final int trailingSingleQuotesCount =
                 StringUtils.getTrailingSingleQuotesCount(typedWordString);
@@ -207,7 +211,7 @@ public final class Suggest {
         // or if the word had more than one char and was not suggested.
         final boolean allowsToBeAutoCorrected =
                 (SHOULD_AUTO_CORRECT_USING_NON_WHITE_LISTED_SUGGESTION || whitelistedWord != null)
-                || (consideredWord.length() > 1 && (sourceDictionaryOfRemovedWord == null));
+                        || (consideredWord.length() > 1 && (sourceDictionaryOfRemovedWord == null));
 
         final boolean hasAutoCorrection;
         // If correction is not enabled, we never auto-correct. This is for example for when
@@ -296,34 +300,74 @@ public final class Suggest {
                 false /* isObsoleteSuggestions */, inputStyle, sequenceNumber));
     }
 
-    private void getTest(final NgramContext ngramContext, final Keyboard keyboard,
+    private void getTest(final Keyboard keyboard,
                          final SettingsValuesForSuggestion settingsValuesForSuggestion,
-                         final int inputStyle, final int sequenceNumber) {
+                         final int inputStyle) {
         Iterator it = mGestureRecord.iterator();
         int numTotal = 0;
         int numWrong = 0;
         GestureRecord caseWrong = new GestureRecord("/sdcard/gesture_wrong.txt");
         while(it.hasNext()) {
             numTotal++;
-            GestureRecord.PairN2T data_ = (GestureRecord.PairN2T)it.next();
+            GestureRecord.Trace trace = (GestureRecord.Trace)it.next();
+
+            InputPointers input_ = new InputPointers(48);
+            for(int i = 0; i < trace.mInputSize; i++) {
+                input_.addPointer(trace.mInputX[i], trace.mInputY[i], 0/*input pointer*/, trace.mInputTime[i]);
+            }
+            ComposedData data = new ComposedData(input_, true/*is batch mode*/, "");
+
+            NgramContext.WordInfo[] prev = new NgramContext.WordInfo[trace.mPrevSize];
+            for(int i = 0; i < trace.mPrevSize; i++) {
+                CharSequence tmp = trace.mPrevWord[i];
+                if (tmp == null) {
+                    prev[i] = NgramContext.WordInfo.EMPTY_WORD_INFO;
+                } else if(tmp.equals("")) {
+                    prev[i] = NgramContext.WordInfo.BEGINNING_OF_SENTENCE_WORD_INFO;
+                } else {
+                    prev[i] = new NgramContext.WordInfo(tmp);
+                }
+            }
+            NgramContext ngramContext = new NgramContext(prev);
 
             final SuggestionResults suggestionResults = mDictionaryFacilitator.getSuggestionResults(
-                    data_.mData, ngramContext, keyboard,
+                    data, ngramContext, keyboard,
                     settingsValuesForSuggestion, SESSION_ID_GESTURE, inputStyle);
+            final Locale locale = mDictionaryFacilitator.getLocale();
             final ArrayList<SuggestedWordInfo> suggestionsContainer =
                     new ArrayList<>(suggestionResults);
+
+            final int suggestionsCount = suggestionsContainer.size();
+            final boolean isFirstCharCapitalized = trace.mIsFirstUp;
+            final boolean isAllUpperCase = trace.mIsAllUp;
+            if (isFirstCharCapitalized || isAllUpperCase) {
+                for (int i = 0; i < suggestionsCount; ++i) {
+                    final SuggestedWordInfo wordInfo = suggestionsContainer.get(i);
+                    final Locale wordlocale = wordInfo.mSourceDict.mLocale;
+                    final SuggestedWordInfo transformedWordInfo = getTransformedSuggestedWordInfo(
+                            wordInfo, null == wordlocale ? locale : wordlocale, isAllUpperCase,
+                            isFirstCharCapitalized, 0 /* trailingSingleQuotesCount */);
+                    suggestionsContainer.set(i, transformedWordInfo);
+                }
+            }
+
+            for (int i = suggestionsContainer.size() - 1; i >= 0; --i) {
+                if (suggestionsContainer.get(i).mScore < SUPPRESS_SUGGEST_THRESHOLD) {
+                    suggestionsContainer.remove(i);
+                }
+            }
 
             if(suggestionsContainer.size() == 0) {
                 numWrong++;
                 continue;
             }
-            if(!data_.mName.equals(suggestionsContainer.get(0).mWord)) {
+            if(!trace.word[0].equals(suggestionsContainer.get(0).mWord)) {
                 numWrong++;
-                caseWrong.putRecord(data_.mName, data_.mData);
+                caseWrong.putTrace(suggestionsContainer.get(0).mWord, trace);
             }
 
         }
-        caseWrong.flush();
+        caseWrong.flushTrace();
         try {
             int numRight = numTotal - numWrong;
             FileOutputStream fout_ = new FileOutputStream("/sdcard/gesture_result.txt");
@@ -334,18 +378,15 @@ public final class Suggest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     // Retrieves suggestions for the batch input
     // and calls the callback function with the suggestions.
     private void getSuggestedWordsForBatchInput(final WordComposer wordComposer,
-            final NgramContext ngramContext, final Keyboard keyboard,
-            final SettingsValuesForSuggestion settingsValuesForSuggestion,
-            final int inputStyle, final int sequenceNumber,
-            final OnGetSuggestedWordsCallback callback) {
+                                                final NgramContext ngramContext, final Keyboard keyboard,
+                                                final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                final int inputStyle, final int sequenceNumber,
+                                                final OnGetSuggestedWordsCallback callback) {
         final SuggestionResults suggestionResults = mDictionaryFacilitator.getSuggestionResults(
                 wordComposer.getComposedDataSnapshot(), ngramContext, keyboard,
                 settingsValuesForSuggestion, SESSION_ID_GESTURE, inputStyle);
@@ -370,7 +411,7 @@ public final class Suggest {
         if (SHOULD_REMOVE_PREVIOUSLY_REJECTED_SUGGESTION
                 && suggestionsContainer.size() > 1
                 && TextUtils.equals(suggestionsContainer.get(0).mWord,
-                   wordComposer.getRejectedBatchModeSuggestion())) {
+                wordComposer.getRejectedBatchModeSuggestion())) {
             final SuggestedWordInfo rejected = suggestionsContainer.remove(0);
             suggestionsContainer.add(1, rejected);
         }
@@ -398,6 +439,8 @@ public final class Suggest {
                 false /* willAutoCorrect */,
                 false /* isObsoleteSuggestions */,
                 inputStyle, sequenceNumber));
+
+        //mGestureRecord.putTrace(suggestionsContainer, wordComposer, ngramContext);
     }
 
     private static ArrayList<SuggestedWordInfo> getSuggestionsInfoListWithDebugInfo(

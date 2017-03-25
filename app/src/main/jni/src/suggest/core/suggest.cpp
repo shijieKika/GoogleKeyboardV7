@@ -489,7 +489,6 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
             const int point0Index = dicNode.getInputIndex(0);
             const bool isCompletion = dicNode.isCompletion(inputSize);
 
-            //const bool isSkip = TRAVERSAL->isSkip(traverseSession, &dicNode);
             if (TRAVERSAL->isSkip(traverseSession, &dicNode)) {
                 correctionDicNode.initByCopy(&dicNode);
                 processDicNodeAsSkipGesture(traverseSession, &correctionDicNode);
