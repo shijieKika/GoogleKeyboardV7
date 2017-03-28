@@ -489,7 +489,7 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
             const int point0Index = dicNode.getInputIndex(0);
             const bool isCompletion = dicNode.isCompletion(inputSize);
 
-            if (TRAVERSAL->isSkip(traverseSession, &dicNode)) {
+            if (point0Index > 0 && TRAVERSAL->isSkip(traverseSession, &dicNode)) {
                 correctionDicNode.initByCopy(&dicNode);
                 processDicNodeAsSkipGesture(traverseSession, &correctionDicNode);
             }
@@ -504,6 +504,12 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
                 if (isCompletion) {
                     // Handle forward lookahead when the lexicon letter exceeds the input size.
                     processDicNodeAsMatchGesture(traverseSession, childDicNode);
+                    continue;
+                }
+
+                // for example, ill vs I'll
+                if(childDicNode->canBeIntentionalOmission()) {
+                    processExpandedDicNodeGesture(traverseSession, childDicNode);
                     continue;
                 }
 
@@ -590,12 +596,13 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
         }
     }
 
+    // TODO : exceed input size
     void Suggest::processExpandedDicNodeGesture(
             DicTraverseSession *traverseSession, DicNode *dicNode) const {
         processTerminalDicNodeGesture(traverseSession, dicNode);
         if (dicNode->getCompoundDistance() < static_cast<float>(MAX_VALUE_FOR_WEIGHTING)) {
             const int allowsLookAhead = !(dicNode->isCompletion(traverseSession->getInputSize()));
-            if (dicNode->hasChildren() && allowsLookAhead) {
+            if (dicNode->hasChildren() /*&& allowsLookAhead*/) {
                 traverseSession->getDicTraverseCache()->copyPushNextActive(dicNode);
             }
         }

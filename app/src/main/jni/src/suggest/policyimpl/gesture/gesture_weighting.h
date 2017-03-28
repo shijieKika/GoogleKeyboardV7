@@ -70,20 +70,9 @@ namespace latinime {
         }
 
         float getOmissionCost(const DicNode *const parentDicNode, const DicNode *const dicNode) const {
-            const bool isZeroCostOmission = parentDicNode->isZeroCostOmission();
-            const bool isIntentionalOmission = parentDicNode->canBeIntentionalOmission();
-            const bool sameCodePoint = dicNode->isSameNodeCodePoint(parentDicNode);
-
-            float cost = 0.0f;
-            if (isZeroCostOmission) {
-                cost = 0.0f;
-            } else if (isIntentionalOmission) {
-                cost = ScoringParams::INTENTIONAL_OMISSION_COST;
-            } else {
-                cost = sameCodePoint ? ScoringParamsG::OMISSION_COST_SAME_CHAR
-                                     : ScoringParamsG::OMISSION_COST;
-            }
-            return cost;
+            return (dicNode->isSameNodeCodePoint(parentDicNode))
+                   ? ScoringParamsG::OMISSION_COST_SAME_CHAR
+                   : ScoringParamsG::OMISSION_COST;
         }
 
         float getMatchedCost(const DicTraverseSession *const traverseSession,

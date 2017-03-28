@@ -103,6 +103,8 @@ public final class Suggest {
         public void onGetSuggestedWords(final SuggestedWords suggestedWords);
     }
 
+    boolean isTest = true;
+
     public void getSuggestedWords(final WordComposer wordComposer,
                                   final NgramContext ngramContext, final Keyboard keyboard,
                                   final SettingsValuesForSuggestion settingsValuesForSuggestion,
@@ -110,8 +112,9 @@ public final class Suggest {
                                   final OnGetSuggestedWordsCallback callback) {
 
         // test
-        if(true) {
+        if(isTest) {
             getTest(keyboard, settingsValuesForSuggestion, inputStyle);
+            isTest = false;
             return;
         }
 
@@ -440,6 +443,7 @@ public final class Suggest {
                 false /* isObsoleteSuggestions */,
                 inputStyle, sequenceNumber));
 
+        // for sampling data
         //mGestureRecord.putTrace(suggestionsContainer, wordComposer, ngramContext);
     }
 
