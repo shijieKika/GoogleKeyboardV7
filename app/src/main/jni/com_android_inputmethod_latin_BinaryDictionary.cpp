@@ -210,21 +210,6 @@ static void latinime_BinaryDictionary_getSuggestions(JNIEnv *env, jclass clazz, 
     env->GetIntArrayRegion(pointerIdsArray, 0, inputSize, pointerIds);
     env->GetIntArrayRegion(inputCodePointsArray, 0, inputCodePointsLength, inputCodePoints);
 
-    if(DEBUG_MSJ && false) {
-        std::stringstream x_ss, y_ss, t_ss, i_ss;
-        for(int i = 0; i < inputSize; i++) {
-            x_ss << xCoordinates[i] << ", ";
-            y_ss << yCoordinates[i] << ", ";
-            t_ss << times[i] << ", ";
-            i_ss << pointerIds[i] << ", ";
-        }
-        MSJLOGI("raw_size: %d", inputSize);
-        MSJLOGI("raw_ids: %s", i_ss.str().c_str());
-        MSJLOGI("raw_xCoor: %s", x_ss.str().c_str());
-        MSJLOGI("raw_yCoor: %s", y_ss.str().c_str());
-        MSJLOGI("raw_times: %s", t_ss.str().c_str());
-    }
-
     const jsize numberOfOptions = env->GetArrayLength(suggestOptions);
     int options[numberOfOptions];
     env->GetIntArrayRegion(suggestOptions, 0, numberOfOptions, options);

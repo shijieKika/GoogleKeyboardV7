@@ -46,11 +46,11 @@ namespace latinime {
                     const DicNode *const dicNode) const {
             const int inputSize = traverseSession->getInputSize();
             const int point0Index = dicNode->getInputIndex(0);
-            const float probability = traverseSession->getProximityInfoState(0)->getProbability(point0Index, NOT_AN_INDEX);
-            if((point0Index > 0)
-               && (point0Index < inputSize)
-               && (probability < ScoringParamsG::THRESHOLD_FOR_SKIP)) {
-                return true;
+            if(point0Index < inputSize) {
+                const float probability = traverseSession->getProximityInfoState(0)->getProbability(point0Index, NOT_AN_INDEX);
+                if(probability < ScoringParamsG::THRESHOLD_FOR_SKIP) {
+                    return true;
+                }
             }
             return false;
         }
@@ -62,8 +62,7 @@ namespace latinime {
                 return false;
             }
             // Note: Always consider intentional omissions (like apostrophes) since they are common.
-            const bool canConsiderOmission =
-                    allowsErrorCorrections || childDicNode->canBeIntentionalOmission();
+            const bool canConsiderOmission = allowsErrorCorrections;
             if (!canConsiderOmission) {
                 return false;
             }

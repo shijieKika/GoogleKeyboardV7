@@ -467,16 +467,9 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
         DicNodeVector childDicNodes(TRAVERSAL->getDefaultExpandDicNodeSize());
         DicNode correctionDicNode;
 
-        std::vector<DicNode> activeNode;
-
         while (traverseSession->getDicTraverseCache()->activeSize() > 0) {
             DicNode dicNode;
             traverseSession->getDicTraverseCache()->popActive(&dicNode);
-
-            if(DEBUG_MSJ) {
-                correctionDicNode.initByCopy(&dicNode);
-                activeNode.push_back(correctionDicNode);
-            }
 
             if (dicNode.isTotalInputSizeExceedingLimit()) {
                 return;
@@ -490,7 +483,7 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
             const bool isCompletion = dicNode.isCompletion(inputSize);
 
             //const bool isSkip = TRAVERSAL->isSkip(traverseSession, &dicNode);
-            if (TRAVERSAL->isSkip(traverseSession, &dicNode)) {
+            if (point0Index > 0 && TRAVERSAL->isSkip(traverseSession, &dicNode)) {
                 correctionDicNode.initByCopy(&dicNode);
                 processDicNodeAsSkipGesture(traverseSession, &correctionDicNode);
             }
@@ -505,6 +498,11 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
                 if (isCompletion) {
                     // Handle forward lookahead when the lexicon letter exceeds the input size.
                     processDicNodeAsMatchGesture(traverseSession, childDicNode);
+                    continue;
+                }
+
+                if(childDicNode->canBeIntentionalOmission()) {
+                    processExpandedDicNodeGesture(traverseSession, childDicNode);
                     continue;
                 }
 
@@ -529,22 +527,6 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
             }
 
         }
-
-        if(DEBUG_MSJ && false) {
-            static int index = 0;
-            for(auto &n : activeNode) {
-                int codePoints[MAX_WORD_LENGTH];
-                n.outputResult(codePoints);
-                char tmpcode[MAX_WORD_LENGTH];
-                int nm = 0;
-                for(nm = 0; nm < n.getTotalNodeCodePointCount(); nm++) {
-                    tmpcode[nm] = (char)(codePoints[nm]);
-                }
-                tmpcode[nm] = 0;
-                MSJLOGI("(%d): %d %s %f", n.getInputIndex(0), index++, tmpcode, n.getCompoundDistance());
-            }
-        }
-
     }
 
     void Suggest::processDicNodeAsSkipGesture(DicTraverseSession *traverseSession,
@@ -595,8 +577,7 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
             DicTraverseSession *traverseSession, DicNode *dicNode) const {
         processTerminalDicNodeGesture(traverseSession, dicNode);
         if (dicNode->getCompoundDistance() < static_cast<float>(MAX_VALUE_FOR_WEIGHTING)) {
-            const int allowsLookAhead = !(dicNode->isCompletion(traverseSession->getInputSize()));
-            if (dicNode->hasChildren() && allowsLookAhead) {
+            if (dicNode->hasChildren()) {
                 traverseSession->getDicTraverseCache()->copyPushNextActive(dicNode);
             }
         }
@@ -610,12 +591,6 @@ void Suggest::createNextWordDicNode(DicTraverseSession *traverseSession, DicNode
         if (!dicNode->isTerminalDicNode()) {
             return;
         }
-//        if (dicNode->shouldBeFilteredBySafetyNetForBigram()) {
-//            return;
-//        }
-//        if (!dicNode->hasMatchedOrProximityCodePoints()) {
-//            return;
-//        }
         // Create a non-cached node here.
         DicNode terminalDicNode(*dicNode);
         Weighting::addCostAndForwardInputIndexGesture(WEIGHTING, CT_TERMINAL, traverseSession, 0,

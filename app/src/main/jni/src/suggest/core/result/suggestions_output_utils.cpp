@@ -107,16 +107,6 @@ const int SuggestionsOutputUtils::MIN_LEN_FOR_MULTI_WORD_AUTOCORRECT = 16;
                                                      traverseSession->getProximityInfoState(0)) :
                                              NOT_AN_INDEX;
 
-            if(DEBUG_MSJ && true) {
-                char tmpcode[MAX_WORD_LENGTH];
-                int i = 0;
-                for(i = 0; i < terminalDicNode->getTotalNodeCodePointCount(); i++) {
-                    tmpcode[i] = (char)(codePoints[i]);
-                }
-                tmpcode[i] = 0;
-                MSJLOGI("input: %s: %f %d", tmpcode, compoundDistance, finalScore);
-            }
-
             outSuggestionResults->addSuggestion(codePoints,
                                                 terminalDicNode->getTotalNodeCodePointCount(),
                                                 finalScore, Dictionary::KIND_CORRECTION | outputTypeFlags,
