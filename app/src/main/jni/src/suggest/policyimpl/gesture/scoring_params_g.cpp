@@ -16,7 +16,7 @@ namespace latinime {
     const float ScoringParamsG::DISTANCE_WEIGHT_EXCEEDING_INPUT_SIZE = 1.0f;
 
     // 这个是 词频补 的权重，和距离信息的负对数组成最终的得分
-    const float ScoringParamsG::DISTANCE_WEIGHT_LANGUAGE = 4.0f;
+    const float ScoringParamsG::DISTANCE_WEIGHT_LANGUAGE = 4.25f;
 
     // 优先队列的长度，影响遍历词典的 检全率
     const int ScoringParamsG::MAX_CACHE_DIC_NODE_SIZE = 80;

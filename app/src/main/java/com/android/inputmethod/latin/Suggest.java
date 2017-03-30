@@ -122,7 +122,8 @@ public final class Suggest {
             getSuggestedWordsForBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, sequenceNumber, callback);
         } else {
-            mGestureRecord.flushTrace();
+            // for sampling data
+            //mGestureRecord.flushTrace();
             getSuggestedWordsForNonBatchInput(wordComposer, ngramContext, keyboard,
                     settingsValuesForSuggestion, inputStyle, isCorrectionEnabled,
                     sequenceNumber, callback);
@@ -308,7 +309,8 @@ public final class Suggest {
                          final int inputStyle) {
         Iterator it = mGestureRecord.iterator();
         int numTotal = 0;
-        int numWrong = 0;
+        int numFirst = 0;
+        int numThree = 0;
         GestureRecord caseWrong = new GestureRecord("/sdcard/gesture_wrong.txt");
         while(it.hasNext()) {
             numTotal++;
@@ -361,20 +363,31 @@ public final class Suggest {
             }
 
             if(suggestionsContainer.size() == 0) {
-                numWrong++;
+                caseWrong.putTrace(new String(), trace);
                 continue;
             }
-            if(!trace.word[0].equals(suggestionsContainer.get(0).mWord)) {
-                numWrong++;
-                caseWrong.putTrace(suggestionsContainer.get(0).mWord, trace);
+
+            String suggestFirst = suggestionsContainer.get(0).mWord;
+            boolean isThree = false;
+            for(int i = 0; i < trace.word.length && i < 3; i++) {
+                if(trace.word[i].equals(suggestFirst)) {
+                    if(i == 0) {
+                        numFirst++;
+                        isThree = true;
+                    }
+                    numThree++;
+                    break;
+                }
+            }
+            if(isThree == false) {
+                caseWrong.putTrace(suggestFirst, trace);
             }
 
         }
         caseWrong.flushTrace();
         try {
-            int numRight = numTotal - numWrong;
             FileOutputStream fout_ = new FileOutputStream("/sdcard/gesture_result.txt");
-            String rel = "Total: " + Integer.toString(numTotal) + "\nRight: " + Integer.toString(numRight) + "\nPercent: " + Double.toString( numRight/ (double)numTotal) + "\n";
+            String rel = "Total: " + Integer.toString(numTotal) + "\nFirst: " + Integer.toString(numFirst) + "\t" + Double.toString( numFirst/ (double)numTotal) + "\nFirstPage: " + Integer.toString(numThree)  + "\t" + Double.toString( numThree/ (double)numTotal) + "\n";
             fout_.write(rel.getBytes());
             fout_.close();
 

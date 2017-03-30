@@ -31,7 +31,7 @@ public class GestureRecord implements Iterable {
         mGson = new Gson();
         mFileName = fileName;
         mLastTrace = new Trace();
-        loadTrace();
+        mTrace = loadTrace();
     }
 
     private List<Trace> loadTrace() {
@@ -57,6 +57,7 @@ public class GestureRecord implements Iterable {
         mLastTrace = new Trace();
     }
 
+    // 用于记录不相同的结果
     public void putTrace(String word, Trace t) {
         if(mTrace == null) {
             mTrace = loadTrace();
@@ -94,7 +95,7 @@ public class GestureRecord implements Iterable {
         if(mTrace == null) {
             return;
         }
-        if(mLastTrace != null) {
+        if(mLastTrace != null && !mLastTrace.isEmpty()) {
             mTrace.add(mLastTrace);
         }
         String jsonTrace = mGson.toJson(mTrace);
@@ -109,6 +110,20 @@ public class GestureRecord implements Iterable {
     }
 
     public class Trace {
+
+        public String[] word;
+        public String mKikaWord;
+
+        public int mInputSize;
+        public int[] mInputX;
+        public int[] mInputY;
+        public int[] mInputTime;
+
+        boolean mIsFirstUp;
+        boolean mIsAllUp;
+
+        public int mPrevSize;
+        public String[] mPrevWord;
 
         public Trace() {
             word = new String[0];
@@ -156,19 +171,9 @@ public class GestureRecord implements Iterable {
             mPrevWord = t.mPrevWord;
         }
 
-        public String[] word;
-        public String mKikaWord;
-
-        public int mInputSize;
-        public int[] mInputX;
-        public int[] mInputY;
-        public int[] mInputTime;
-
-        boolean mIsFirstUp;
-        boolean mIsAllUp;
-
-        public int mPrevSize;
-        public String[] mPrevWord;
+        private boolean isEmpty() {
+            return mInputSize == 0;
+        }
 
     }
 
