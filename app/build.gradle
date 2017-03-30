@@ -16,8 +16,6 @@ model {
 
         ndk {
             moduleName "jni_latinime"
-            toolchain "clang"
-            //toolchainVersion "3.5"
             cppFlags.addAll("-Wall","-Wformat=2","-Wcast-qual","-Wcast-align","-Wwrite-strings","-Wfloat-equal","-Wpointer-arith","-Winit-self","-Wno-system-headers","-O0","-DANDROID","-w","-std=c++11","-fpermissive")
             //To suppress compiler warnings for unused variables/functions used for debug features etc.
             cppFlags.addAll("-Wno-unused-parameter","-Wno-unused-function")
