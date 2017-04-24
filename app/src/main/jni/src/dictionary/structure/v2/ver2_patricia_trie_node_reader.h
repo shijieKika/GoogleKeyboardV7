@@ -24,7 +24,7 @@
 #include "dictionary/structure/pt_common/pt_node_reader.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryBigramsStructurePolicy;
 class DictionaryShortcutsStructurePolicy;
@@ -48,5 +48,5 @@ class Ver2ParticiaTrieNodeReader : public PtNodeReader {
     const DictionaryShortcutsStructurePolicy *const mShortcutPolicy;
     const int *const mCodePointTable;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER2_PATRICIA_TRIE_NODE_READER_H */

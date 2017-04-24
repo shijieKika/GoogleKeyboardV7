@@ -24,7 +24,7 @@
 #include "defines.h"
 #include "suggest/core/dicnode/dic_node.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNodePool {
  public:
@@ -83,5 +83,5 @@ class DicNodePool {
     std::vector<DicNode> mDicNodes;
     std::deque<DicNode*> mPooledDicNodes;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_POOL_H

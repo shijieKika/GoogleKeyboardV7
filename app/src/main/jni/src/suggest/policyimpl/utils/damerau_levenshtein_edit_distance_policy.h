@@ -20,7 +20,7 @@
 #include "suggest/policyimpl/utils/edit_distance_policy.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DamerauLevenshteinEditDistancePolicy : public EditDistancePolicy {
  public:
@@ -74,6 +74,6 @@ class DamerauLevenshteinEditDistancePolicy : public EditDistancePolicy {
     const int *const mString1;
     const int mString1Length;
 };
-} // namespace latinime
+} // namespace kikaime
 
 #endif  // LATINIME_DAEMARU_LEVENSHTEIN_EDIT_DISTANCE_POLICY_H

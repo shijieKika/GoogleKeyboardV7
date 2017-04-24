@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "utils/ngram_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Copyable but immutable
 class EntryCounts final {
@@ -85,5 +85,5 @@ class MutableEntryCounters final {
     // (MAX_PREV_WORD_COUNT_FOR_N_GRAM-th element)
     std::array<int, MAX_PREV_WORD_COUNT_FOR_N_GRAM + 1> mEntryCounters;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_ENTRY_COUNTERS_H */

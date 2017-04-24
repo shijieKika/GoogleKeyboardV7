@@ -24,7 +24,7 @@
 #include "dictionary/structure/pt_common/pt_node_params.h"
 #include "dictionary/structure/pt_common/pt_node_reader.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryShortcutsStructurePolicy;
 class PtNodeArrayReader;
@@ -278,5 +278,5 @@ class DynamicPtReadingHelper {
         }
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DYNAMIC_PT_READING_HELPER_H */

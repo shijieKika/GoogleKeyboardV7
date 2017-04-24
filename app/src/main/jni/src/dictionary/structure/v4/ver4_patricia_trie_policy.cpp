@@ -33,7 +33,7 @@
 #include "dictionary/utils/probability_utils.h"
 #include "utils/ngram_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Note that there are corresponding definitions in Java side in BinaryDictionaryTests and
 // BinaryDictionaryDecayingTests.
@@ -600,4 +600,4 @@ int Ver4PatriciaTriePolicy::getNextWordAndNextToken(const int token, int *const 
     return nextToken;
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -32,7 +32,7 @@
 #include "utils/byte_array_view.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicNodeVector;
@@ -176,5 +176,5 @@ class PatriciaTriePolicy : public DictionaryStructureWithBufferPolicy {
             const PtNodeParams &ptNodeParams) const;
     bool isValidPos(const int pos) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_PATRICIA_TRIE_POLICY_H

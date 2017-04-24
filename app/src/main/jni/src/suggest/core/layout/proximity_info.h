@@ -24,7 +24,7 @@
 #include "jni.h"
 #include "suggest/core/layout/proximity_info_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ProximityInfo {
  public:
@@ -122,5 +122,5 @@ class ProximityInfo {
     int mCenterYsG[MAX_KEY_COUNT_IN_A_KEYBOARD];
     int mKeyKeyDistancesG[MAX_KEY_COUNT_IN_A_KEYBOARD][MAX_KEY_COUNT_IN_A_KEYBOARD];
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_PROXIMITY_INFO_H

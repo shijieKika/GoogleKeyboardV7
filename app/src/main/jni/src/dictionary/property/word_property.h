@@ -24,7 +24,7 @@
 #include "dictionary/property/unigram_property.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 // This class is used for returning information belonging to a word to java side.
 class WordProperty {
@@ -58,5 +58,5 @@ class WordProperty {
     const UnigramProperty mUnigramProperty;
     const std::vector<NgramProperty> mNgrams;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_WORD_PROPERTY_H

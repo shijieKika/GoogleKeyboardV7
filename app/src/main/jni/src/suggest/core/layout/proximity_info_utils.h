@@ -26,7 +26,7 @@
 #include "suggest/core/layout/geometry_utils.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 class ProximityInfoUtils {
  public:
     static AK_FORCE_INLINE int getKeyIndexOf(const int keyCount, const int c,
@@ -233,5 +233,5 @@ class ProximityInfoUtils {
         return dx * dx + dy * dy;
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_PROXIMITY_INFO_UTILS_H

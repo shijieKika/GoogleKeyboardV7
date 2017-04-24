@@ -29,7 +29,7 @@
 #include "suggest/core/layout/proximity_info.h"
 #include "suggest/core/layout/proximity_info_params.h"
 
-namespace latinime {
+namespace kikaime {
 
 /* static */ int ProximityInfoStateUtils::trimLastTwoTouchPoints(std::vector<int> *sampledInputXs,
         std::vector<int> *sampledInputYs, std::vector<int> *sampledInputTimes,
@@ -1012,4 +1012,4 @@ namespace latinime {
             originalX.str().c_str(), originalY.str().c_str(), sampledX.str().c_str(),
             sampledY.str().c_str());
 }
-} // namespace latinime
+} // namespace kikaime

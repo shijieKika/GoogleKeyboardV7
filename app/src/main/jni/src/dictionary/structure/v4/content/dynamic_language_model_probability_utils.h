@@ -24,7 +24,7 @@
 #include "utils/ngram_utils.h"
 #include "utils/time_keeper.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DynamicLanguageModelProbabilityUtils {
  public:
@@ -73,5 +73,5 @@ private:
     static const int DURATION_TO_DISCARD_ENTRY_IN_SECONDS;
 };
 
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DYNAMIC_LANGUAGE_MODEL_PROBABILITY_UTILS_H */

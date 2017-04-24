@@ -16,6 +16,6 @@
 
 #include "suggest/policyimpl/typing/typing_scoring.h"
 
-namespace latinime {
+namespace kikaime {
 const TypingScoring TypingScoring::sInstance;
-}  // namespace latinime
+}  // namespace kikaime

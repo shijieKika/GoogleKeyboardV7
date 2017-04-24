@@ -23,7 +23,7 @@
 #include "dictionary/property/historical_info.h"
 #include "dictionary/property/ngram_context.h"
 
-namespace latinime {
+namespace kikaime {
 
 class NgramProperty {
  public:
@@ -58,5 +58,5 @@ class NgramProperty {
     const int mProbability;
     const HistoricalInfo mHistoricalInfo;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_NGRAM_PROPERTY_H

@@ -23,7 +23,7 @@
 #include "defines.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * PtNode information related to the DicNode from the lexicon trie.
@@ -127,5 +127,5 @@ class DicNodeProperties {
     WordIdArray<MAX_PREV_WORD_COUNT_FOR_N_GRAM> mPrevWordIds;
     size_t mPrevWordCount;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_PROPERTIES_H

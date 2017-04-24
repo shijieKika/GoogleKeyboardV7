@@ -28,7 +28,7 @@
 #include "dictionary/utils/probability_utils.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 void PatriciaTriePolicy::createAndGetAllChildDicNodes(const DicNode *const dicNode,
         DicNodeVector *const childDicNodes) const {
@@ -523,4 +523,4 @@ bool PatriciaTriePolicy::isValidPos(const int pos) const {
     return pos >= 0 && pos < static_cast<int>(mBuffer.size());
 }
 
-} // namespace latinime
+} // namespace kikaime

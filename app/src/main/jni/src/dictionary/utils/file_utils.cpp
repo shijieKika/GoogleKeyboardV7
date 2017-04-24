@@ -25,7 +25,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-namespace latinime {
+namespace kikaime {
 
 // Returns -1 on error.
 /* static */ int FileUtils::getFileSize(const char *const filePath) {
@@ -168,4 +168,4 @@ namespace latinime {
     snprintf(outName, baseNameLength + 1 /* terminator */, "%s", baseName);
 }
 
-} // namespace latinime
+} // namespace kikaime

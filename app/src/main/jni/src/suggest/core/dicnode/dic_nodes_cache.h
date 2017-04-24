@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "suggest/core/dicnode/dic_node_priority_queue.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 
@@ -186,5 +186,5 @@ class DicNodesCache {
     int mInputIndex;
     int mLastCachedInputIndex;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODES_CACHE_H

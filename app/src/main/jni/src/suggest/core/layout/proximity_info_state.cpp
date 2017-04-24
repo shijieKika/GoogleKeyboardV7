@@ -31,7 +31,7 @@
 #include "suggest/core/layout/proximity_info_state_utils.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 int ProximityInfoState::getPrimaryOriginalCodePointAt(const int index) const {
     const int primaryCodePoint = getPrimaryCodePointAt(index);
@@ -304,4 +304,4 @@ float ProximityInfoState::getProbability(const int index, const int keyIndex) co
     }
     return static_cast<float>(MAX_VALUE_FOR_WEIGHTING);
 }
-} // namespace latinime
+} // namespace kikaime

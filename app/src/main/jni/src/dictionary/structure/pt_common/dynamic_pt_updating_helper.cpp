@@ -24,7 +24,7 @@
 #include "dictionary/structure/pt_common/pt_node_writer.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int DynamicPtUpdatingHelper::CHILDREN_POSITION_FIELD_SIZE = 3;
 
@@ -296,4 +296,4 @@ const PtNodeParams DynamicPtUpdatingHelper::getPtNodeParamsForNewPtNode(const bo
     return PtNodeParams(flags, parentPos, codePoints, probability);
 }
 
-} // namespace latinime
+} // namespace kikaime

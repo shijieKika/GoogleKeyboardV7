@@ -30,7 +30,7 @@
 #include "dictionary/structure/backward/v402/content/single_dict_content.h"
 #include "dictionary/structure/backward/v402/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -69,5 +69,5 @@ class TerminalPositionLookupTable : public SingleDictContent {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BACKWARD_V402_TERMINAL_POSITION_LOOKUP_TABLE_H

@@ -31,7 +31,7 @@
 #include "dictionary/structure/backward/v402/content/shortcut_dict_content.h"
 #include "dictionary/structure/backward/v402/content/terminal_position_lookup_table.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -114,5 +114,5 @@ class Ver4ShortcutListPolicy : public DictionaryShortcutsStructurePolicy {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BACKWARD_V402_VER4_SHORTCUT_LIST_POLICY_H

@@ -19,7 +19,7 @@
 
 #include "jni.h"
 
-namespace latinime {
+namespace kikaime {
 int register_ProximityInfo(JNIEnv *env);
-} // namespace latinime
+} // namespace kikaime
 #endif // _COM_ANDROID_INPUTMETHOD_KEYBOARD_PROXIMITYINFO_H

@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "dictionary/structure/pt_common/pt_node_array_reader.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 
@@ -38,5 +38,5 @@ class Ver4PtNodeArrayReader : public PtNodeArrayReader {
 
     const BufferWithExtendableBuffer *const mBuffer;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER4_PT_NODE_ARRAY_READER_H */

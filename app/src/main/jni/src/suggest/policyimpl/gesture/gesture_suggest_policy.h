@@ -11,7 +11,7 @@
 #include "suggest/policyimpl/gesture/gesture_traversal.h"
 #include "suggest/policyimpl/gesture/gesture_weighting.h"
 
-namespace latinime {
+namespace kikaime {
 
     class Scoring;
 
@@ -45,6 +45,6 @@ namespace latinime {
         static const GestureSuggestPolicy sInstance;
     };
 
-} // namespace latinime
+} // namespace kikaime
 
 #endif //GOOGLEKEYBOARDV7_GESTURE_SUGGEST_POLICY_H

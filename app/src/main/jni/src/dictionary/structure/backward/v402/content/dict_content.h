@@ -26,7 +26,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -43,5 +43,5 @@ class DictContent {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_DICT_CONTENT_H */

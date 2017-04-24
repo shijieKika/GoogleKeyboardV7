@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class EditDistancePolicy {
  public:
@@ -38,6 +38,6 @@ class EditDistancePolicy {
  private:
     DISALLOW_COPY_AND_ASSIGN(EditDistancePolicy);
 };
-} // namespace latinime
+} // namespace kikaime
 
 #endif  // LATINIME_EDIT_DISTANCE_POLICY_H

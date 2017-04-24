@@ -25,7 +25,7 @@
 #include "dictionary/structure/v4/ver4_dict_constants.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class TerminalPositionLookupTable : public SingleDictContent {
  public:
@@ -59,5 +59,5 @@ class TerminalPositionLookupTable : public SingleDictContent {
 
     int mSize;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TERMINAL_POSITION_LOOKUP_TABLE_H

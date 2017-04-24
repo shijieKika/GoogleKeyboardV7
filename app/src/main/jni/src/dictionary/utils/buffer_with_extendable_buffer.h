@@ -25,7 +25,7 @@
 #include "dictionary/utils/byte_array_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 // This is used as a buffer that can be extended for updatable dictionaries.
 // To optimize performance, raw pointer is directly used for reading buffer. The position has to be

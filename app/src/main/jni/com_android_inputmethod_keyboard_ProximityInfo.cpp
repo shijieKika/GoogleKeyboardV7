@@ -23,7 +23,7 @@
 #include "jni_common.h"
 #include "suggest/core/layout/proximity_info.h"
 
-namespace latinime {
+namespace kikaime {
 
 static jlong latinime_Keyboard_setProximityInfo(JNIEnv *env, jclass clazz,
         jint displayWidth, jint displayHeight, jint gridWidth, jint gridHeight,
@@ -60,4 +60,4 @@ int register_ProximityInfo(JNIEnv *env) {
     const char *const kClassPathName = "com/android/inputmethod/keyboard/ProximityInfo";
     return registerNativeMethods(env, kClassPathName, sMethods, NELEMS(sMethods));
 }
-} // namespace latinime
+} // namespace kikaime

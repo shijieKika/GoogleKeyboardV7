@@ -4,7 +4,7 @@
 
 #include "suggest/policyimpl/gesture/gesture_suggest_policy.h"
 
-namespace latinime {
+namespace kikaime {
     const GestureSuggestPolicy GestureSuggestPolicy::sInstance;
-} // namespace latinime
+} // namespace kikaime
 

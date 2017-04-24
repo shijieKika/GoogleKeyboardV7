@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DynamicPtReadingUtils {
  public:
@@ -79,5 +79,5 @@ class DynamicPtReadingUtils {
     static const NodeFlags FLAG_IS_DELETED;
     static const NodeFlags FLAG_WILL_BECOME_NON_TERMINAL;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DYNAMIC_PT_READING_UTILS_H */

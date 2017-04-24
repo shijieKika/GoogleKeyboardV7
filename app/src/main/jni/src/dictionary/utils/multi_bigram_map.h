@@ -27,7 +27,7 @@
 #include "dictionary/utils/bloom_filter.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Class for caching bigram maps for multiple previous word contexts. This is useful since the
 // algorithm needs to look up the set of bigrams for every word pair that occurs in every
@@ -80,5 +80,5 @@ class MultiBigramMap {
     static const size_t MAX_CACHED_PREV_WORDS_IN_BIGRAM_MAP;
     std::unordered_map<int, BigramMap> mBigramMaps;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_MULTI_BIGRAM_MAP_H

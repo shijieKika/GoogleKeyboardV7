@@ -32,7 +32,7 @@
 #include "dictionary/utils/format_utils.h"
 #include "utils/time_keeper.h"
 
-namespace latinime {
+namespace kikaime {
 
 const char *const DictFileWritingUtils::TEMP_FILE_SUFFIX_FOR_WRITING_DICT_FILE = ".tmp";
 // Enough size to describe buffer size.
@@ -141,4 +141,4 @@ template<class DictConstants, class DictBuffers, class DictBuffersPtr>
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

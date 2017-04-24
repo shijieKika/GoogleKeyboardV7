@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * Utility methods for reading byte arrays.
@@ -286,5 +286,5 @@ class ByteArrayUtils {
         buffer[(*pos)++] = data & 0xFF;
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BYTE_ARRAY_UTILS_H */

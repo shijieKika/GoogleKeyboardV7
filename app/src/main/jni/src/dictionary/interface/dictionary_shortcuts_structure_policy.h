@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /*
  * This class abstracts structure of shortcuts.
@@ -42,5 +42,5 @@ class DictionaryShortcutsStructurePolicy {
  private:
     DISALLOW_COPY_AND_ASSIGN(DictionaryShortcutsStructurePolicy);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DICTIONARY_SHORTCUTS_STRUCTURE_POLICY_H */

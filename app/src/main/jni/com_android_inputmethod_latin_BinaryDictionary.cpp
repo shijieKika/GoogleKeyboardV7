@@ -39,7 +39,7 @@
 #include "utils/profiler.h"
 #include "utils/time_keeper.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ProximityInfo;
 
@@ -742,4 +742,4 @@ int register_BinaryDictionary(JNIEnv *env) {
     const char *const kClassPathName = "com/android/inputmethod/latin/BinaryDictionary";
     return registerNativeMethods(env, kClassPathName, sMethods, NELEMS(sMethods));
 }
-} // namespace latinime
+} // namespace kikaime

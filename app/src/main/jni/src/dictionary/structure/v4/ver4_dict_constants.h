@@ -22,7 +22,7 @@
 #include <cstddef>
 #include <cstdint>
 
-namespace latinime {
+namespace kikaime {
 
 // TODO: Create PtConstants under the pt_common and move some constant values there.
 // Note that there are corresponding definitions in FormatSpec.java.
@@ -71,5 +71,5 @@ class Ver4DictConstants {
     static const size_t NUM_OF_BUFFERS_FOR_SPARSE_TABLE_DICT_CONTENT;
     static const size_t NUM_OF_BUFFERS_FOR_LANGUAGE_MODEL_DICT_CONTENT;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER4_DICT_CONSTANTS_H */

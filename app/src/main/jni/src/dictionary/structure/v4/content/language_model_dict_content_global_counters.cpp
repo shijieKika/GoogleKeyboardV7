@@ -20,7 +20,7 @@
 
 #include "dictionary/structure/v4/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int LanguageModelDictContentGlobalCounters::COUNTER_VALUE_NEAR_LIMIT_THRESHOLD =
         (1 << (Ver4DictConstants::WORD_COUNT_FIELD_SIZE * CHAR_BIT)) - 64;
@@ -29,4 +29,4 @@ const int LanguageModelDictContentGlobalCounters::COUNTER_SIZE_IN_BYTES = 4;
 const int LanguageModelDictContentGlobalCounters::TOTAL_COUNT_INDEX = 0;
 const int LanguageModelDictContentGlobalCounters::MAX_VALUE_OF_COUNTERS_INDEX = 1;
 
-} // namespace latinime
+} // namespace kikaime

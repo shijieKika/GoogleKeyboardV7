@@ -24,7 +24,7 @@
 #include "jni_common.h"
 #include "suggest/core/session/dic_traverse_session.h"
 
-namespace latinime {
+namespace kikaime {
 class Dictionary;
 static jlong latinime_setDicTraverseSession(JNIEnv *env, jclass clazz, jstring localeJStr,
         jlong dictSize) {
@@ -77,4 +77,4 @@ int register_DicTraverseSession(JNIEnv *env) {
     const char *const kClassPathName = "com/android/inputmethod/latin/DicTraverseSession";
     return registerNativeMethods(env, kClassPathName, sMethods, NELEMS(sMethods));
 }
-} // namespace latinime
+} // namespace kikaime

@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class AutocorrectionThresholdUtils {
  public:
@@ -35,5 +35,5 @@ class AutocorrectionThresholdUtils {
     static const int TYPED_LETTER_MULTIPLIER;
     static const int FULL_WORD_MULTIPLIER;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_AUTOCORRECTION_THRESHOLD_UTILS_H

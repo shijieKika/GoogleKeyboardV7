@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ProximityInfoParams {
  public:
@@ -107,5 +107,5 @@ class ProximityInfoParams {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(ProximityInfoParams);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_PROXIMITY_INFO_PARAMS_H

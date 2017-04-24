@@ -19,7 +19,7 @@
 #include <cstddef>
 #include <unordered_map>
 
-namespace latinime {
+namespace kikaime {
 
 // Max number of bigram maps (previous word contexts) to be cached. Increasing this number
 // could improve bigram lookup speed for multi-word suggestions, but at the cost of more memory
@@ -97,4 +97,4 @@ int MultiBigramMap::readBigramProbabilityFromBinaryDictionary(
     return structurePolicy->getProbability(unigramProbability, NOT_A_PROBABILITY);
 }
 
-} // namespace latinime
+} // namespace kikaime

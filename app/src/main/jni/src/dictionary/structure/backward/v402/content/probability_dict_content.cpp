@@ -28,7 +28,7 @@
 #include "dictionary/structure/backward/v402/ver4_dict_constants.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -167,4 +167,4 @@ bool ProbabilityDictContent::writeEntry(const ProbabilityEntry *const probabilit
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

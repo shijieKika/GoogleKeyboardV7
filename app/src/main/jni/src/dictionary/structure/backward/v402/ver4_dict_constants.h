@@ -26,7 +26,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -80,5 +80,5 @@ class Ver4DictConstants {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_DICT_CONSTANTS_H */

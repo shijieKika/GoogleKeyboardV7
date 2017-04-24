@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class HistoricalInfo {
  public:
@@ -55,5 +55,5 @@ class HistoricalInfo {
     const int mLevel;
     const int mCount;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_HISTORICAL_INFO_H */

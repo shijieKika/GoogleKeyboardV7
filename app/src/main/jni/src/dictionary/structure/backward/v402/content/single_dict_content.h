@@ -32,7 +32,7 @@
 #include "dictionary/utils/mmapped_buffer.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -84,5 +84,5 @@ class SingleDictContent : public DictContent {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_SINGLE_DICT_CONTENT_H */

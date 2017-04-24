@@ -31,7 +31,7 @@
 #include "dictionary/structure/backward/v402/content/probability_entry.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -146,5 +146,5 @@ class Ver4PatriciaTrieNodeWriter : public PtNodeWriter {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_PATRICIA_TRIE_NODE_WRITER_H */

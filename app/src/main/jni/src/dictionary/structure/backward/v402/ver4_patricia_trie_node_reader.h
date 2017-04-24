@@ -28,7 +28,7 @@
 #include "dictionary/structure/pt_common/pt_node_params.h"
 #include "dictionary/structure/pt_common/pt_node_reader.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -75,5 +75,5 @@ class Ver4PatriciaTrieNodeReader : public PtNodeReader {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_PATRICIA_TRIE_NODE_READER_H */

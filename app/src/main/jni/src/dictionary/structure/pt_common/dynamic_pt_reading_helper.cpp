@@ -19,7 +19,7 @@
 #include "dictionary/structure/pt_common/pt_node_array_reader.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // To avoid infinite loop caused by invalid or malicious forward links.
 const int DynamicPtReadingHelper::MAX_CHILD_COUNT_TO_AVOID_INFINITE_LOOP = 100000;
@@ -318,4 +318,4 @@ void DynamicPtReadingHelper::followForwardLink() {
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -23,7 +23,7 @@
 #include "suggest/core/session/dic_traverse_session.h"
 #include "suggest/policyimpl/typing/scoring_params.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicTraverseSession;
@@ -115,5 +115,5 @@ class TypingScoring : public Scoring {
     TypingScoring() {}
     ~TypingScoring() {}
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TYPING_SCORING_H

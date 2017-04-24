@@ -23,7 +23,7 @@
 #include "defines.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 
@@ -64,5 +64,5 @@ private:
    static int getBigramAddressAndAdvancePosition(const ReadOnlyByteArrayView buffer,
            const BigramFlags flags, int *const pos);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BIGRAM_LIST_READ_WRITE_UTILS_H

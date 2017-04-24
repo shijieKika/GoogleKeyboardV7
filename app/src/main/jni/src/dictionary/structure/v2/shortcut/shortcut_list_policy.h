@@ -24,7 +24,7 @@
 #include "dictionary/structure/pt_common/shortcut/shortcut_list_reading_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ShortcutListPolicy : public DictionaryShortcutsStructurePolicy {
  public:
@@ -69,5 +69,5 @@ class ShortcutListPolicy : public DictionaryShortcutsStructurePolicy {
 
     const ReadOnlyByteArrayView mBuffer;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SHORTCUT_LIST_POLICY_H

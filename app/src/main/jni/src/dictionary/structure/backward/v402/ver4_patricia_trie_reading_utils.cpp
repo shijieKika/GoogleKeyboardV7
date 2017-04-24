@@ -25,7 +25,7 @@
 
 #include "dictionary/utils/byte_array_utils.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -36,4 +36,4 @@ namespace v402 {
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

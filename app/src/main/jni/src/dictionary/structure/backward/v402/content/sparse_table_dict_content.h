@@ -33,7 +33,7 @@
 #include "dictionary/utils/sparse_table.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -120,5 +120,5 @@ class SparseTableDictContent : public DictContent {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_SPARSE_TABLE_DICT_CONTENT_H */

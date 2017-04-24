@@ -23,7 +23,7 @@
 #include "dictionary/header/header_read_write_utils.h"
 #include "dictionary/utils/format_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 
@@ -63,5 +63,5 @@ class DictFileWritingUtils {
     static bool writeBufferToFile(FILE *const file,
             const BufferWithExtendableBuffer *const buffer);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DICT_FILE_WRITING_UTILS_H */

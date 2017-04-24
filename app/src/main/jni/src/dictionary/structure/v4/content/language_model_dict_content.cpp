@@ -23,7 +23,7 @@
 #include "dictionary/utils/probability_utils.h"
 #include "utils/ngram_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int LanguageModelDictContent::TRIE_MAP_BUFFER_INDEX = 0;
 const int LanguageModelDictContent::GLOBAL_COUNTERS_BUFFER_INDEX = 1;
@@ -475,4 +475,4 @@ LanguageModelDictContent::EntryInfoToTurncate::EntryInfoToTurncate(const int pri
     memmove(mPrevWordIds, prevWordIds, mPrevWordCount * sizeof(mPrevWordIds[0]));
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -23,7 +23,7 @@
 
 #include "dictionary/structure/backward/v402/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -78,4 +78,4 @@ const int Ver4DictConstants::SHORTCUT_HAS_NEXT_MASK = 0x80;
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

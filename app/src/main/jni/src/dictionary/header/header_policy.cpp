@@ -20,7 +20,7 @@
 
 #include "utils/ngram_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Note that these are corresponding definitions in Java side in DictionaryHeader.
 const char *const HeaderPolicy::MULTIPLE_WORDS_DEMOTION_RATE_KEY = "MULTIPLE_WORDS_DEMOTION_RATE";
@@ -180,4 +180,4 @@ void HeaderPolicy::fillInHeader(const bool updatesLastDecayedTime,
     return entryCounters.getEntryCounts();
 }
 
-} // namespace latinime
+} // namespace kikaime

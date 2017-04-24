@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
     /* static */ void LogUtils::logToJava(JNIEnv *const env, const char *const format, ...) {
         static const char *TAG = "LatinIME:LogUtils";
         const jclass androidUtilLogClass = env->FindClass("android/util/Log");

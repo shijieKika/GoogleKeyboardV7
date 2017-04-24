@@ -19,7 +19,7 @@
 #include "dictionary/utils/byte_array_utils.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 const BigramListReadWriteUtils::BigramFlags BigramListReadWriteUtils::MASK_ATTRIBUTE_ADDRESS_TYPE =
         0x30;
@@ -92,4 +92,4 @@ const BigramListReadWriteUtils::BigramFlags
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

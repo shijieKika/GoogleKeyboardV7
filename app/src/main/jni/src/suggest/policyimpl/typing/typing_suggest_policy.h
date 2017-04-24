@@ -23,7 +23,7 @@
 #include "suggest/policyimpl/typing/typing_traversal.h"
 #include "suggest/policyimpl/typing/typing_weighting.h"
 
-namespace latinime {
+namespace kikaime {
 
 class Scoring;
 class Traversal;
@@ -51,5 +51,5 @@ class TypingSuggestPolicy : public SuggestPolicy {
     DISALLOW_COPY_AND_ASSIGN(TypingSuggestPolicy);
     static const TypingSuggestPolicy sInstance;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TYPING_SUGGEST_POLICY_H

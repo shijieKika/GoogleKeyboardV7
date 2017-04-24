@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class FileUtils {
  public:
@@ -56,5 +56,5 @@ class FileUtils {
 
     static bool removeDirAndFiles(const char *const dirPath, const int maxTries);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_FILE_UTILS_H */

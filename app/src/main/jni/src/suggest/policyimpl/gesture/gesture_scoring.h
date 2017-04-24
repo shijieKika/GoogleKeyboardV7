@@ -11,7 +11,7 @@
 #include "suggest/core/session/dic_traverse_session.h"
 #include "suggest/policyimpl/typing/scoring_params.h"
 
-namespace latinime {
+namespace kikaime {
 
     class DicNode;
     class DicTraverseSession;
@@ -103,6 +103,6 @@ namespace latinime {
         GestureScoring() {}
         ~GestureScoring() {}
     };
-} // namespace latinime
+} // namespace kikaime
 
 #endif //GOOGLEKEYBOARDV7_GESTURE_SCORING_H

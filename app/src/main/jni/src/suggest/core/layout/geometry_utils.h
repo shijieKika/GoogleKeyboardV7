@@ -24,7 +24,7 @@
 #define ROUND_FLOAT_10000(f) ((f) < 1000.0f && (f) > 0.001f) \
         ? (floorf((f) * 10000.0f) / 10000.0f) : (f)
 
-namespace latinime {
+namespace kikaime {
 
 class GeometryUtils {
  public:
@@ -57,5 +57,5 @@ class GeometryUtils {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(GeometryUtils);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_GEOMETRY_UTILS_H

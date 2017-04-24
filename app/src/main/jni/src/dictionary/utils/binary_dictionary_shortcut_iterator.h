@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "dictionary/interface/dictionary_shortcuts_structure_policy.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BinaryDictionaryShortcutIterator {
  public:
@@ -57,5 +57,5 @@ class BinaryDictionaryShortcutIterator {
     int mPos;
     bool mHasNextShortcutTarget;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BINARY_DICTIONARY_SHORTCUT_ITERATOR_H

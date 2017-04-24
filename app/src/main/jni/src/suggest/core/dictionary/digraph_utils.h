@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryHeaderStructurePolicy;
 
@@ -56,5 +56,5 @@ class DigraphUtils {
     static const digraph_t GERMAN_UMLAUT_DIGRAPHS[];
     static const DigraphType USED_DIGRAPH_TYPES[];
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // DIGRAPH_UTILS_H

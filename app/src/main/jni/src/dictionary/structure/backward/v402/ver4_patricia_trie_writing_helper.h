@@ -29,7 +29,7 @@
 #include "dictionary/structure/backward/v402/content/terminal_position_lookup_table.h"
 #include "dictionary/utils/entry_counters.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -135,6 +135,6 @@ class Ver4PatriciaTrieWritingHelper {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 
 #endif /* LATINIME_BACKWARD_V402_VER4_PATRICIA_TRIE_WRITING_HELPER_H */

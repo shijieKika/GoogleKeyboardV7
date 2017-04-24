@@ -21,7 +21,7 @@
 
 #include "dictionary/structure/pt_common/pt_node_params.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Interface class used to read PtNode information.
 class PtNodeReader {
@@ -36,5 +36,5 @@ class PtNodeReader {
  private:
     DISALLOW_COPY_AND_ASSIGN(PtNodeReader);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_PT_NODE_READER_H */

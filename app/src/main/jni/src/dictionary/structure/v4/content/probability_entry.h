@@ -26,7 +26,7 @@
 #include "dictionary/property/unigram_property.h"
 #include "dictionary/structure/v4/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ProbabilityEntry {
  public:
@@ -172,5 +172,5 @@ class ProbabilityEntry {
         return flags;
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_PROBABILITY_ENTRY_H */

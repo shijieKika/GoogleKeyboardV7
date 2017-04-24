@@ -39,7 +39,7 @@
 #include "dictionary/utils/multi_bigram_map.h"
 #include "dictionary/utils/probability_utils.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -659,4 +659,4 @@ int Ver4PatriciaTriePolicy::getTerminalPtNodePosFromWordId(const int wordId) con
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

@@ -30,7 +30,7 @@
 #include "suggest/policyimpl/typing/scoring_params.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 class TypingTraversal : public Traversal {
  public:
     static const TypingTraversal *getInstance() { return &sInstance; }
@@ -207,5 +207,5 @@ class TypingTraversal : public Traversal {
     TypingTraversal() {}
     ~TypingTraversal() {}
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TYPING_TRAVERSAL_H

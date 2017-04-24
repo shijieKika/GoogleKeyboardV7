@@ -29,7 +29,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "dictionary/utils/mmapped_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 class Ver4DictBuffers {
  public:
@@ -128,5 +128,5 @@ class Ver4DictBuffers {
     ShortcutDictContent mShortcutDictContent;
     const int mIsUpdatable;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER4_DICT_BUFFER_H */

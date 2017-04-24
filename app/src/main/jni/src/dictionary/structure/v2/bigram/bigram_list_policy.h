@@ -24,7 +24,7 @@
 #include "dictionary/structure/pt_common/bigram/bigram_list_read_write_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BigramListPolicy : public DictionaryBigramsStructurePolicy {
  public:
@@ -55,5 +55,5 @@ class BigramListPolicy : public DictionaryBigramsStructurePolicy {
 
     const ReadOnlyByteArrayView mBuffer;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BIGRAM_LIST_POLICY_H

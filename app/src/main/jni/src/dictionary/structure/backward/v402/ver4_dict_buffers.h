@@ -36,7 +36,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "dictionary/utils/mmapped_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -148,5 +148,5 @@ class Ver4DictBuffers {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_DICT_BUFFER_H */

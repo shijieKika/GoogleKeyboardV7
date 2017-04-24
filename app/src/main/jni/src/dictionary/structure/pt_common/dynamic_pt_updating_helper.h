@@ -21,7 +21,7 @@
 #include "dictionary/structure/pt_common/pt_node_params.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class NgramProperty;
 class BufferWithExtendableBuffer;
@@ -92,5 +92,5 @@ class DynamicPtUpdatingHelper {
             const bool isPossiblyOffensive, const bool isTerminal, const int parentPos,
             const CodePointArrayView codePoints, const int probability) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DYNAMIC_PATRICIA_TRIE_UPDATING_HELPER_H */

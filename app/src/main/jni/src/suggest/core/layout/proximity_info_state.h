@@ -25,7 +25,7 @@
 #include "suggest/core/layout/proximity_info_params.h"
 #include "suggest/core/layout/proximity_info_state_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ProximityInfo;
 
@@ -230,5 +230,5 @@ class ProximityInfoState {
     float mMostProbableStringProbability;
     int mMostProbableString[MAX_WORD_LENGTH];
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_PROXIMITY_INFO_STATE_H

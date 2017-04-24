@@ -24,7 +24,7 @@
 #include "dictionary/structure/v4/content/terminal_position_lookup_table.h"
 #include "dictionary/structure/v4/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ReadWriteByteArrayView;
 
@@ -88,5 +88,5 @@ class ShortcutDictContent : public SparseTableDictContent {
 
     int createAndGetShortcutFlags(const int probability, const bool hasNext) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_SHORTCUT_DICT_CONTENT_H */

@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 
@@ -33,5 +33,5 @@ class Ver4PatriciaTrieReadingUtils {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(Ver4PatriciaTrieReadingUtils);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER4_PATRICIA_TRIE_READING_UTILS_H */

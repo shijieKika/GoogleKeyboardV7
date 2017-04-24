@@ -20,7 +20,7 @@
 #include "suggest/core/dicnode/dic_node.h"
 #include "suggest/core/dicnode/dic_node_vector.h"
 
-namespace latinime {
+namespace kikaime {
 
 ///////////////////////////////
 // Node initialization utils //
@@ -85,4 +85,4 @@ namespace latinime {
     return cost;
 }
 
-} // namespace latinime
+} // namespace kikaime

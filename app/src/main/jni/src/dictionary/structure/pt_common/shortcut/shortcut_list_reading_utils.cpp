@@ -18,7 +18,7 @@
 
 #include "dictionary/utils/byte_array_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Flag for presence of more attributes
 const ShortcutListReadingUtils::ShortcutFlags
@@ -50,4 +50,4 @@ const int ShortcutListReadingUtils::WHITELIST_SHORTCUT_PROBABILITY = 15;
             nullptr /* codePointTable */, outWord, pos);
 }
 
-} // namespace latinime
+} // namespace kikaime

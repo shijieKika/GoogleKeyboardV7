@@ -25,7 +25,7 @@
 #include "dictionary/utils/sparse_table.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 // TODO: Support multiple contents.
 class SparseTableDictContent {
@@ -87,5 +87,5 @@ class SparseTableDictContent {
     BufferWithExtendableBuffer mExpandableContentBuffer;
     SparseTable mAddressLookupTable;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_SPARSE_TABLE_DICT_CONTENT_H */

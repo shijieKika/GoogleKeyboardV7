@@ -18,7 +18,7 @@
 
 #include "dictionary/utils/dict_file_writing_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int TrieMap::INVALID_INDEX = -1;
 const int TrieMap::FIELD0_SIZE = 4;
@@ -457,4 +457,4 @@ bool TrieMap::removeInner(const Entry &bitmapEntry) {
     return true;
 }
 
-}  // namespace latinime
+}  // namespace kikaime

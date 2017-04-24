@@ -8,7 +8,7 @@
 #include "suggest/core/layout/proximity_info.h"
 #include "suggest/policyimpl/typing/scoring_params.h"
 
-namespace latinime {
+namespace kikaime {
 
     const GestureWeighting GestureWeighting::sInstance;
 
@@ -93,5 +93,5 @@ namespace latinime {
                 return ErrorTypeUtils::NOT_AN_ERROR;
         }
     }
-}  // namespace latinime
+}  // namespace kikaime
 

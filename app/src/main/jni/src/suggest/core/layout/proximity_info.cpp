@@ -29,7 +29,7 @@
 #include "suggest/core/layout/proximity_info_params.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 static AK_FORCE_INLINE void safeGetOrFillZeroIntArrayRegion(JNIEnv *env, jintArray jArray,
         jsize len, jint *buffer) {
@@ -248,4 +248,4 @@ int ProximityInfo::getKeyKeyDistanceG(const int keyId0, const int keyId1) const 
     }
     return MAX_VALUE_FOR_WEIGHTING;
 }
-} // namespace latinime
+} // namespace kikaime

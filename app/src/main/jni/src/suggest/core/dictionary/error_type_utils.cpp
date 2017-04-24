@@ -16,7 +16,7 @@
 
 #include "suggest/core/dictionary/error_type_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const ErrorTypeUtils::ErrorType ErrorTypeUtils::NOT_AN_ERROR = 0x0;
 const ErrorTypeUtils::ErrorType ErrorTypeUtils::MATCH_WITH_WRONG_CASE = 0x1;
@@ -38,4 +38,4 @@ const ErrorTypeUtils::ErrorType
         ErrorTypeUtils::ERRORS_TREATED_AS_AN_EXACT_MATCH_WITH_INTENTIONAL_OMISSION =
                 ERRORS_TREATED_AS_AN_EXACT_MATCH | INTENTIONAL_OMISSION;
 
-} // namespace latinime
+} // namespace kikaime

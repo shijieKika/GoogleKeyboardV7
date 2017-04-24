@@ -21,7 +21,7 @@
 #include "dictionary/structure/pt_common/pt_node_params.h"
 #include "dictionary/structure/pt_common/pt_node_reader.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 class HeaderPolicy;
@@ -51,5 +51,5 @@ class Ver4PatriciaTrieNodeReader : public PtNodeReader {
     const PtNodeParams fetchPtNodeInfoFromBufferAndProcessMovedPtNode(const int ptNodePos,
             const int siblingNodePos) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER4_PATRICIA_TRIE_NODE_READER_H */

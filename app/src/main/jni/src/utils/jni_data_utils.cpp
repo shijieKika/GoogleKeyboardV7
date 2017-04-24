@@ -18,7 +18,7 @@
 
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int JniDataUtils::CODE_POINT_REPLACEMENT_CHARACTER = 0xFFFD;
 const int JniDataUtils::CODE_POINT_NULL = 0;
@@ -112,4 +112,4 @@ const int JniDataUtils::CODE_POINT_NULL = 0;
     env->DeleteLocalRef(arrayListClass);
 }
 
-} // namespace latinime
+} // namespace kikaime

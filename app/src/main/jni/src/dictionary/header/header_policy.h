@@ -27,7 +27,7 @@
 #include "utils/char_utils.h"
 #include "utils/time_keeper.h"
 
-namespace latinime {
+namespace kikaime {
 
 class HeaderPolicy : public DictionaryHeaderStructurePolicy {
  public:
@@ -264,5 +264,5 @@ class HeaderPolicy : public DictionaryHeaderStructurePolicy {
     static DictionaryHeaderStructurePolicy::AttributeMap createAttributeMapAndReadAllAttributes(
             const uint8_t *const dictBuf);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_HEADER_POLICY_H */

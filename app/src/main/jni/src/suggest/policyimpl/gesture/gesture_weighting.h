@@ -18,7 +18,7 @@
 #include "suggest/policyimpl/gesture/scoring_params_g.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
     class DicNode;
     struct DicNode_InputStateG;
@@ -87,73 +87,33 @@ namespace latinime {
 
         bool isProximityDicNode(const DicTraverseSession *const traverseSession,
                                 const DicNode *const dicNode) const {
-            const int pointIndex = dicNode->getInputIndex(0);
-            const int primaryCodePoint = CharUtils::toBaseLowerCase(
-                    traverseSession->getProximityInfoState(0)->getPrimaryCodePointAt(pointIndex));
-            const int dicNodeChar = CharUtils::toBaseLowerCase(dicNode->getNodeCodePoint());
-            return primaryCodePoint != dicNodeChar;
+            return false;
         }
 
         float getTranspositionCost(const DicTraverseSession *const traverseSession,
                                    const DicNode *const parentDicNode, const DicNode *const dicNode) const {
-            const int16_t parentPointIndex = parentDicNode->getInputIndex(0);
-            const int prevCodePoint = parentDicNode->getNodeCodePoint();
-            const float distance1 = traverseSession->getProximityInfoState(0)->getPointToKeyLength(
-                    parentPointIndex + 1, CharUtils::toBaseLowerCase(prevCodePoint));
-            const int codePoint = dicNode->getNodeCodePoint();
-            const float distance2 = traverseSession->getProximityInfoState(0)->getPointToKeyLength(
-                    parentPointIndex, CharUtils::toBaseLowerCase(codePoint));
-            const float distance = distance1 + distance2;
-            const float weightedLengthDistance =
-                    distance * ScoringParams::DISTANCE_WEIGHT_LENGTH;
-            return ScoringParams::TRANSPOSITION_COST + weightedLengthDistance;
+            return 0;
         }
 
         float getInsertionCost(const DicTraverseSession *const traverseSession,
                                const DicNode *const parentDicNode, const DicNode *const dicNode) const {
-            const int16_t insertedPointIndex = parentDicNode->getInputIndex(0);
-            const int prevCodePoint = traverseSession->getProximityInfoState(0)->getPrimaryCodePointAt(
-                    insertedPointIndex);
-            const int currentCodePoint = dicNode->getNodeCodePoint();
-            const bool sameCodePoint = prevCodePoint == currentCodePoint;
-            const bool existsAdjacentProximityChars = traverseSession->getProximityInfoState(0)
-                    ->existsAdjacentProximityChars(insertedPointIndex);
-            const float dist = traverseSession->getProximityInfoState(0)->getPointToKeyLength(
-                    insertedPointIndex + 1, CharUtils::toBaseLowerCase(dicNode->getNodeCodePoint()));
-            const float weightedDistance = dist * ScoringParams::DISTANCE_WEIGHT_LENGTH;
-            const bool singleChar = dicNode->getNodeCodePointCount() == 1;
-            float cost = (singleChar ? ScoringParams::INSERTION_COST_FIRST_CHAR : 0.0f);
-            if (sameCodePoint) {
-                cost += ScoringParams::INSERTION_COST_SAME_CHAR;
-            } else if (existsAdjacentProximityChars) {
-                cost += ScoringParams::INSERTION_COST_PROXIMITY_CHAR;
-            } else {
-                cost += ScoringParams::INSERTION_COST;
-            }
-            return cost + weightedDistance;
+            return 0;
         }
 
         float getSpaceOmissionCost(const DicTraverseSession *const traverseSession,
                                    const DicNode *const dicNode, DicNode_InputStateG *inputStateG) const {
-            const float cost = ScoringParams::SPACE_OMISSION_COST;
-            return cost * traverseSession->getMultiWordCostMultiplier();
+            return 0;
         }
 
         float getNewWordBigramLanguageCost(const DicTraverseSession *const traverseSession,
                                            const DicNode *const dicNode,
                                            MultiBigramMap *const multiBigramMap) const {
-            return DicNodeUtils::getBigramNodeImprobability(
-                    traverseSession->getDictionaryStructurePolicy(),
-                    dicNode, multiBigramMap) * ScoringParams::DISTANCE_WEIGHT_LANGUAGE;
+            return 0;
         }
 
         float getTerminalInsertionCost(const DicTraverseSession *const traverseSession,
                                        const DicNode *const dicNode) const {
-            const int inputIndex = dicNode->getInputIndex(0);
-            const int inputSize = traverseSession->getInputSize();
-            ASSERT(inputIndex < inputSize);
-            // TODO: Implement more efficient logic
-            return  ScoringParams::TERMINAL_INSERTION_COST * (inputSize - inputIndex);
+            return 0;
         }
 
         AK_FORCE_INLINE bool needsToNormalizeCompoundDistance() const {
@@ -161,20 +121,16 @@ namespace latinime {
         }
 
         AK_FORCE_INLINE float getAdditionalProximityCost() const {
-            return ScoringParams::ADDITIONAL_PROXIMITY_COST;
+            return 0;
         }
 
         AK_FORCE_INLINE float getSubstitutionCost() const {
-            return ScoringParams::SUBSTITUTION_COST;
+            return 0;
         }
 
         AK_FORCE_INLINE float getSpaceSubstitutionCost(const DicTraverseSession *const traverseSession,
                                                        const DicNode *const dicNode) const {
-            const int inputIndex = dicNode->getInputIndex(0);
-            const float distanceToSpaceKey = traverseSession->getProximityInfoState(0)
-                    ->getPointToKeyLength(inputIndex, KEYCODE_SPACE);
-            const float cost = ScoringParams::SPACE_SUBSTITUTION_COST * distanceToSpaceKey;
-            return cost * traverseSession->getMultiWordCostMultiplier();
+            return 0;
         }
 
         ErrorTypeUtils::ErrorType getErrorType(const CorrectionType correctionType,
@@ -188,7 +144,7 @@ namespace latinime {
         GestureWeighting() {}
         ~GestureWeighting() {}
     };
-} // namespace latinime
+} // namespace kikaime
 
 
 #endif //GOOGLEKEYBOARDV7_GESTURE_WEIGHTING_H

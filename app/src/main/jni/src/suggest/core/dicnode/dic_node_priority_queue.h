@@ -25,7 +25,7 @@
 #include "suggest/core/dicnode/dic_node.h"
 #include "suggest/core/dicnode/dic_node_pool.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNodePriorityQueue {
  public:
@@ -131,5 +131,5 @@ class DicNodePriorityQueue {
         return newNode;
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_PRIORITY_QUEUE_H

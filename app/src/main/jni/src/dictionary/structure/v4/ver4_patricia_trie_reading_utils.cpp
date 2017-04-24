@@ -18,11 +18,11 @@
 
 #include "dictionary/utils/byte_array_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 /* static */ int Ver4PatriciaTrieReadingUtils::getTerminalIdAndAdvancePosition(
         const uint8_t *const buffer, int *pos) {
     return ByteArrayUtils::readUint32AndAdvancePosition(buffer, pos);
 }
 
-} // namespace latinime
+} // namespace kikaime

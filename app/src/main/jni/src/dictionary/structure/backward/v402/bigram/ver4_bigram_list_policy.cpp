@@ -32,7 +32,7 @@
 #include "dictionary/structure/backward/v402/ver4_dict_constants.h"
 #include "dictionary/utils/forgetting_curve_utils.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -286,4 +286,4 @@ bool Ver4BigramListPolicy::updateHasNextFlag(const bool hasNext, const int bigra
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicNodeVector;
@@ -48,5 +48,5 @@ class DicNodeUtils {
     // Max number of bigrams to look up
     static const int MAX_BIGRAMS_CONSIDERED_PER_CONTEXT = 500;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_UTILS_H

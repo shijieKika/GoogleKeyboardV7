@@ -17,7 +17,7 @@
 #include "defines.h"
 #include "suggest/core/layout/proximity_info_params.h"
 
-namespace latinime {
+namespace kikaime {
 const float ProximityInfoParams::NOT_A_DISTANCE_FLOAT = -1.0f;
 const int ProximityInfoParams::MIN_DOUBLE_LETTER_BEELINE_SPEED_PERCENTILE = 5;
 const float ProximityInfoParams::VERTICAL_SWEET_SPOT_SCALE = 1.0f;
@@ -99,4 +99,4 @@ const int ProximityInfoParams::LOOKUP_RADIUS_PERCENTILE = 50;
 const int ProximityInfoParams::FIRST_POINT_TIME_OFFSET_MILLIS = 150;
 const int ProximityInfoParams::STRONG_DOUBLE_LETTER_TIME_MILLIS = 600;
 
-} // namespace latinime
+} // namespace kikaime

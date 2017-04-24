@@ -4,7 +4,7 @@
 
 #include "suggest/policyimpl/gesture/gesture_traversal.h"
 
-namespace latinime {
+namespace kikaime {
     const bool GestureTraversal::CORRECT_OMISSION = true;
     const GestureTraversal GestureTraversal::sInstance;
-}  // namespace latinime
+}  // namespace kikaime

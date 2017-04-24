@@ -28,7 +28,7 @@
 #include "dictionary/utils/file_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 /* static */ Ver4DictBuffers::Ver4DictBuffersPtr Ver4DictBuffers::openVer4DictBuffers(
         const char *const dictPath, MmappedBuffer::MmappedBufferPtr &&headerBuffer,
@@ -191,4 +191,4 @@ Ver4DictBuffers::Ver4DictBuffers(const HeaderPolicy *const headerPolicy, const i
           mLanguageModelDictContent(headerPolicy->hasHistoricalInfoOfWords()),
           mShortcutDictContent(),  mIsUpdatable(true) {}
 
-} // namespace latinime
+} // namespace kikaime

@@ -22,7 +22,7 @@
 
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 const size_t DynamicPtWritingUtils::MAX_PTNODE_ARRAY_SIZE_TO_USE_SMALL_SIZE_FIELD = 0x7F;
 const size_t DynamicPtWritingUtils::MAX_PTNODE_ARRAY_SIZE = 0x7FFF;

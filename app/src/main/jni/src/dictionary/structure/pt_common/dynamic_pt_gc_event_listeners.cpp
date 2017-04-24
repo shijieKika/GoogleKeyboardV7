@@ -21,7 +21,7 @@
 #include "dictionary/structure/pt_common/pt_node_params.h"
 #include "dictionary/structure/pt_common/pt_node_writer.h"
 
-namespace latinime {
+namespace kikaime {
 
 bool DynamicPtGcEventListeners
         ::TraversePolicyToUpdateUnigramProbabilityAndMarkUselessPtNodesAsDeleted
@@ -141,4 +141,4 @@ bool DynamicPtGcEventListeners::TraversePolicyToUpdateAllPositionFields
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

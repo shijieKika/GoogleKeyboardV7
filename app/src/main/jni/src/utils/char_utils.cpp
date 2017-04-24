@@ -20,7 +20,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int CharUtils::MIN_UNICODE_CODE_POINT = 0;
 const int CharUtils::MAX_UNICODE_CODE_POINT = 0x10FFFF;
@@ -1284,4 +1284,4 @@ static int compare_pair_capital(const void *a, const void *b) {
 };
 
 /* static */ const std::vector<int> CharUtils::EMPTY_STRING(1 /* size */, '\0' /* value */);
-} // namespace latinime
+} // namespace kikaime

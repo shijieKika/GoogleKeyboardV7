@@ -25,7 +25,7 @@
 #include "suggest/core/dictionary/digraph_utils.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 /* static */ int DictionaryUtils::getMaxProbabilityOfExactMatches(
         const DictionaryStructureWithBufferPolicy *const dictionaryStructurePolicy,
@@ -97,4 +97,4 @@ namespace latinime {
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -22,7 +22,7 @@
 #include "suggest/core/dicnode/internal/dic_node_state_output.h"
 #include "suggest/core/dicnode/internal/dic_node_state_scoring.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNodeState {
  public:
@@ -76,5 +76,5 @@ class DicNodeState {
                 mergedNodeCodePointCount, mergedNodeCodePoints);
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_STATE_H

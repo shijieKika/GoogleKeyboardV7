@@ -31,7 +31,7 @@
 #include "dictionary/utils/forgetting_curve_utils.h"
 #include "utils/ngram_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 bool Ver4PatriciaTrieWritingHelper::writeToDictFile(const char *const dictDirPath,
         const EntryCounts &entryCounts) const {
@@ -182,4 +182,4 @@ bool Ver4PatriciaTrieWritingHelper::TraversePolicyToUpdateAllPtNodeFlagsAndTermi
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

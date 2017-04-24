@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "dictionary/structure/pt_common/dynamic_pt_reading_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 
@@ -75,5 +75,5 @@ class DynamicPtWritingUtils {
     static bool writeDictOffset(BufferWithExtendableBuffer *const buffer, const int targetPos,
             const int basePos, int *const offsetFieldPos);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DYNAMIC_PT_WRITING_UTILS_H */

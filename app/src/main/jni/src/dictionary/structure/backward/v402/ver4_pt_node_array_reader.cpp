@@ -27,7 +27,7 @@
 #include "dictionary/structure/pt_common/patricia_trie_reading_utils.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -87,4 +87,4 @@ bool Ver4PtNodeArrayReader::readForwardLinkAndReturnIfValid(const int forwordLin
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

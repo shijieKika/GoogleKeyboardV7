@@ -38,7 +38,7 @@
 #include "dictionary/utils/file_utils.h"
 #include "dictionary/utils/forgetting_curve_utils.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -304,4 +304,4 @@ bool Ver4PatriciaTrieWritingHelper::TraversePolicyToUpdateAllPtNodeFlagsAndTermi
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

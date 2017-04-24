@@ -36,7 +36,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "dictionary/utils/forgetting_curve_utils.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -439,4 +439,4 @@ bool Ver4PatriciaTrieNodeWriter::suppressUnigramEntry(const PtNodeParams *const 
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

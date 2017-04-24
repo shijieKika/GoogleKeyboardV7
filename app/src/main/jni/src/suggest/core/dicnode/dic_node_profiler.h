@@ -55,7 +55,7 @@
 #define PROF_NODE_COPY(src, dest)
 #endif
 
-namespace latinime {
+namespace kikaime {
 
 class DicNodeProfiler {
  public:

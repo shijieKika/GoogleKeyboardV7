@@ -7,7 +7,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
     class ScoringParamsG {
     public:
         static const float COST_FIRST_COMPLETION;
@@ -28,7 +28,7 @@ namespace latinime {
     private:
         DISALLOW_IMPLICIT_CONSTRUCTORS(ScoringParamsG);
     };
-} // namespace latinime
+} // namespace kikaime
 
 
 

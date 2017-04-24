@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicTraverseSession;
 
@@ -60,5 +60,5 @@ class Traversal {
  private:
     DISALLOW_COPY_AND_ASSIGN(Traversal);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TRAVERSAL_H

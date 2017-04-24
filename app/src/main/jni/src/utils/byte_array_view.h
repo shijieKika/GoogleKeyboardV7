@@ -22,7 +22,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * Helper class used to keep track of read accesses for a given memory region.
@@ -92,5 +92,5 @@ class ReadWriteByteArrayView {
     size_t mSize;
 };
 
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BYTE_ARRAY_VIEW_H

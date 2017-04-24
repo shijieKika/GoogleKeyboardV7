@@ -24,7 +24,7 @@
 #include "jni.h"
 #include "suggest/core/result/suggested_word.h"
 
-namespace latinime {
+namespace kikaime {
 
 class SuggestionResults {
  public:
@@ -61,5 +61,5 @@ class SuggestionResults {
     std::priority_queue<
             SuggestedWord, std::vector<SuggestedWord>, SuggestedWord::Comparator> mSuggestedWords;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SUGGESTION_RESULTS_H

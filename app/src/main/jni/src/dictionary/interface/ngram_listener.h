@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * Interface to iterate ngram entries.
@@ -38,5 +38,5 @@ class NgramListener {
     DISALLOW_COPY_AND_ASSIGN(NgramListener);
 
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_NGRAM_LISTENER_H */

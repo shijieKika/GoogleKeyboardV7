@@ -24,7 +24,7 @@
 #include "suggest/core/dictionary/digraph_utils.h"
 #include "suggest/core/dictionary/error_type_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNodeStateScoring {
  public:
@@ -215,5 +215,5 @@ class DicNodeStateScoring {
         }
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_STATE_SCORING_H

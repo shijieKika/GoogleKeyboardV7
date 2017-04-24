@@ -25,7 +25,7 @@
 
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -223,4 +223,4 @@ bool BigramDictContent::runGCBigramList(const int bigramListPos,
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

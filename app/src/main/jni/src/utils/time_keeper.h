@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class TimeKeeper {
  public:
@@ -37,5 +37,5 @@ class TimeKeeper {
     static int sCurrentTime;
     static bool sSetForTesting;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_TIME_KEEPER_H */

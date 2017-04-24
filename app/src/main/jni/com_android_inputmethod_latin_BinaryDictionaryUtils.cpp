@@ -27,7 +27,7 @@
 #include "utils/jni_data_utils.h"
 #include "utils/time_keeper.h"
 
-namespace latinime {
+namespace kikaime {
 
 static jboolean latinime_BinaryDictionaryUtils_createEmptyDictFile(JNIEnv *env, jclass clazz,
         jstring filePath, jlong dictVersion, jstring locale, jobjectArray attributeKeyStringArray,
@@ -102,4 +102,4 @@ int register_BinaryDictionaryUtils(JNIEnv *env) {
     const char *const kClassPathName = "com/android/inputmethod/latin/utils/BinaryDictionaryUtils";
     return registerNativeMethods(env, kClassPathName, sMethods, NELEMS(sMethods));
 }
-} // namespace latinime
+} // namespace kikaime

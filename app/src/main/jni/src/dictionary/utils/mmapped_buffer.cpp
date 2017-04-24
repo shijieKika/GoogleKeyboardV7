@@ -25,7 +25,7 @@
 
 #include "dictionary/utils/file_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 /* static */ MmappedBuffer::MmappedBufferPtr MmappedBuffer::openBuffer(
         const char *const path, const int bufferOffset, const int bufferSize,
@@ -95,4 +95,4 @@ MmappedBuffer::~MmappedBuffer() {
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

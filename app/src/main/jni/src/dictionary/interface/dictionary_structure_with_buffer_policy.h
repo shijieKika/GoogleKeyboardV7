@@ -26,7 +26,7 @@
 #include "dictionary/utils/binary_dictionary_shortcut_iterator.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicNodeVector;
@@ -120,5 +120,5 @@ class DictionaryStructureWithBufferPolicy {
  private:
     DISALLOW_COPY_AND_ASSIGN(DictionaryStructureWithBufferPolicy);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DICTIONARY_STRUCTURE_POLICY_H */

@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryShortcutsStructurePolicy;
 class DictionaryBigramsStructurePolicy;
@@ -129,5 +129,5 @@ class PatriciaTrieReadingUtils {
     static const NodeFlags FLAG_IS_NOT_A_WORD;
     static const NodeFlags FLAG_IS_POSSIBLY_OFFENSIVE;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_PATRICIA_TRIE_NODE_READING_UTILS_H */

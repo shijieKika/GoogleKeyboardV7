@@ -26,7 +26,7 @@
 #include "utils/char_utils.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 // This class has information of a PtNode. This class is immutable.
 class PtNodeParams {
@@ -258,5 +258,5 @@ class PtNodeParams {
     const int mBigramPos;
     const int mSiblingPos;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_PT_NODE_PARAMS_H */

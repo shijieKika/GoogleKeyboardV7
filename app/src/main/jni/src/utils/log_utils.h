@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "jni.h"
 
-namespace latinime {
+namespace kikaime {
 
 class LogUtils {
  public:
@@ -33,5 +33,5 @@ class LogUtils {
  private:
     DISALLOW_COPY_AND_ASSIGN(LogUtils);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_LOG_UTILS_H

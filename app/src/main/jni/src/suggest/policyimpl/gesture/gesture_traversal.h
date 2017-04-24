@@ -20,7 +20,7 @@
 #include "suggest/policyimpl/gesture/scoring_params_g.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
     class GestureTraversal : public Traversal {
     public:
         static const GestureTraversal *getInstance() { return &sInstance; }
@@ -183,7 +183,7 @@ namespace latinime {
         GestureTraversal() {}
         ~GestureTraversal() {}
     };
-} // namespace latinime
+} // namespace kikaime
 
 
 

@@ -23,7 +23,7 @@
 #include "dictionary/interface/dictionary_header_structure_policy.h"
 #include "dictionary/utils/format_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 

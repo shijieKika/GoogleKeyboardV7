@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "dictionary/interface/dictionary_bigrams_structure_policy.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BinaryDictionaryBigramsIterator {
  public:
@@ -65,5 +65,5 @@ class BinaryDictionaryBigramsIterator {
     int mProbability;
     bool mHasNext;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BINARY_DICTIONARY_BIGRAMS_ITERATOR_H

@@ -28,7 +28,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "dictionary/utils/forgetting_curve_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int Ver4PatriciaTrieNodeWriter::CHILDREN_POSITION_FIELD_SIZE = 3;
 
@@ -351,4 +351,4 @@ bool Ver4PatriciaTrieNodeWriter::updatePtNodeFlags(const int ptNodePos, const bo
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

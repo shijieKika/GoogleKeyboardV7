@@ -33,7 +33,7 @@
 #include "dictionary/utils/mmapped_buffer.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 /* static */ DictionaryStructureWithBufferPolicy::StructurePolicyPtr
         DictionaryStructureWithBufferPolicyFactory::newPolicyForExistingDictFile(
@@ -206,4 +206,4 @@ template<class DictConstants, class DictBuffers, class DictBuffersPtr, class Str
             dictName, Ver4DictConstants::HEADER_FILE_EXTENSION);
 }
 
-} // namespace latinime
+} // namespace kikaime

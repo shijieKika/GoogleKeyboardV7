@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ProximityInfo;
 class SuggestionResults;
@@ -36,5 +36,5 @@ class SuggestInterface {
  private:
     DISALLOW_COPY_AND_ASSIGN(SuggestInterface);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SUGGEST_INTERFACE_H

@@ -25,7 +25,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "dictionary/utils/byte_array_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Number of base-10 digits in the largest integer + 1 to leave room for a zero terminator.
 // As such, this is the maximum number of characters will be needed to represent an int as a
@@ -245,4 +245,4 @@ typedef DictionaryHeaderStructurePolicy::AttributeMap AttributeMap;
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

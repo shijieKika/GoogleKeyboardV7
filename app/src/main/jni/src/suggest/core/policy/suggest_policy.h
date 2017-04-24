@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class Traversal;
 class Scoring;
@@ -36,5 +36,5 @@ class SuggestPolicy {
  private:
     DISALLOW_COPY_AND_ASSIGN(SuggestPolicy);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SUGGEST_POLICY_H

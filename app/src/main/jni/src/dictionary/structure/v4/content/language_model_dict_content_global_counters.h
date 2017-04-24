@@ -24,7 +24,7 @@
 #include "dictionary/utils/dict_file_writing_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class LanguageModelDictContentGlobalCounters {
  public:
@@ -97,5 +97,5 @@ private:
         return buffer.readUint(COUNTER_SIZE_IN_BYTES, pos);
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_LANGUAGE_MODEL_DICT_CONTENT_GLOBAL_COUNTERS_H */

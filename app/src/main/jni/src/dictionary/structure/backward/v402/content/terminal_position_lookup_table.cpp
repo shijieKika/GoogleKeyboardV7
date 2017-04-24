@@ -26,7 +26,7 @@
 #include "dictionary/structure/backward/v402/ver4_patricia_trie_reading_utils.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -108,4 +108,4 @@ bool TerminalPositionLookupTable::runGCTerminalIds(TerminalIdMap *const terminal
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

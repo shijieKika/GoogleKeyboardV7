@@ -27,7 +27,7 @@
 #include "defines.h"
 #include "dictionary/structure/pt_common/pt_node_array_reader.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -53,5 +53,5 @@ class Ver4PtNodeArrayReader : public PtNodeArrayReader {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_PT_NODE_ARRAY_READER_H */

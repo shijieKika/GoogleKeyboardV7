@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Normal distribution N(u, sigma^2).
 class NormalDistribution {
@@ -45,5 +45,5 @@ class NormalDistribution {
     const float mPreComputedNonExpPart; // = 1 / sqrt(2 * PI * sigma^2)
     const float mPreComputedExponentPart; // = -1 / (2 * sigma^2)
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_NORMAL_DISTRIBUTION_H

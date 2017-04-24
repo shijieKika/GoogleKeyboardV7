@@ -23,7 +23,7 @@
 #include "suggest/core/layout/geometry_utils.h"
 #include "suggest/core/layout/normal_distribution.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Normal distribution on a 2D plane. The covariance is always zero, but the distribution can be
 // rotated.
@@ -55,5 +55,5 @@ class NormalDistribution2D {
     const float mSinTheta;
     const float mCosTheta;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_NORMAL_DISTRIBUTION_2D_H

@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /*
  * This class abstracts structure of bigrams.
@@ -38,5 +38,5 @@ class DictionaryBigramsStructurePolicy {
  private:
     DISALLOW_COPY_AND_ASSIGN(DictionaryBigramsStructurePolicy);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DICTIONARY_BIGRAMS_STRUCTURE_POLICY_H */

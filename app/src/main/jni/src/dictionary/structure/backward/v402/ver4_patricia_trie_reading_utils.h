@@ -28,7 +28,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -48,5 +48,5 @@ class Ver4PatriciaTrieReadingUtils {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_PATRICIA_TRIE_READING_UTILS_H */

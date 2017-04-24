@@ -18,7 +18,7 @@
 
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 void ShortcutDictContent::getShortcutEntryAndAdvancePosition(const int maxCodePointCount,
         int *const outCodePoint, int *const outCodePointCount, int *const outProbability,
@@ -179,4 +179,4 @@ int ShortcutDictContent::createAndGetShortcutFlags(const int probability,
             | (hasNext ? Ver4DictConstants::SHORTCUT_HAS_NEXT_MASK : 0);
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -55,7 +55,7 @@
 #define DUMP_WORD_AND_SCORE(header)
 #endif
 
-namespace latinime {
+namespace kikaime {
 
 // This struct is purely a bucket to return values. No instances of this struct should be kept.
 struct DicNode_InputStateG {
@@ -501,5 +501,5 @@ class DicNode {
         mDicNodeState.mDicNodeStateScoring.setDoubleLetterLevel(inputStateG->mDoubleLetterLevel);
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_H

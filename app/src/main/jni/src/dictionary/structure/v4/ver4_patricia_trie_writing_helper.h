@@ -22,7 +22,7 @@
 #include "dictionary/structure/v4/content/terminal_position_lookup_table.h"
 #include "dictionary/utils/entry_counters.h"
 
-namespace latinime {
+namespace kikaime {
 
 class HeaderPolicy;
 class Ver4DictBuffers;
@@ -71,6 +71,6 @@ class Ver4PatriciaTrieWritingHelper {
 
     Ver4DictBuffers *const mBuffers;
 };
-} // namespace latinime
+} // namespace kikaime
 
 #endif /* LATINIME_VER4_PATRICIA_TRIE_WRITING_HELPER_H */

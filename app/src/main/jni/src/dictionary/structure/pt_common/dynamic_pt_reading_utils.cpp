@@ -19,7 +19,7 @@
 #include "defines.h"
 #include "dictionary/utils/byte_array_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const DynamicPtReadingUtils::NodeFlags DynamicPtReadingUtils::MASK_MOVED = 0xC0;
 const DynamicPtReadingUtils::NodeFlags DynamicPtReadingUtils::FLAG_IS_NOT_MOVED = 0xC0;
@@ -69,4 +69,4 @@ const int DynamicPtReadingUtils::DICT_OFFSET_ZERO_OFFSET = 0x7FFFFF;
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

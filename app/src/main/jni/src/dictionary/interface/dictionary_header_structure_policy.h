@@ -22,7 +22,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /*
  * This class abstracts structure of dictionaries.
@@ -59,5 +59,5 @@ class DictionaryHeaderStructurePolicy {
  private:
     DISALLOW_COPY_AND_ASSIGN(DictionaryHeaderStructurePolicy);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DICTIONARY_HEADER_STRUCTURE_POLICY_H */

@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class SuggestOptions{
  public:
@@ -87,5 +87,5 @@ class SuggestOptions{
         return 0;
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SUGGEST_OPTIONS_H

@@ -21,7 +21,7 @@
 #include "dictionary/interface/dictionary_shortcuts_structure_policy.h"
 #include "dictionary/utils/byte_array_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 typedef PatriciaTrieReadingUtils PtReadingUtils;
 
@@ -161,4 +161,4 @@ const PtReadingUtils::NodeFlags PtReadingUtils::FLAG_IS_POSSIBLY_OFFENSIVE = 0x0
     *outSiblingPos = readingPos;
 }
 
-} // namespace latinime
+} // namespace kikaime

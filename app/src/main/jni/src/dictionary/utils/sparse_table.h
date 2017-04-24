@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 // TODO: Support multiple content buffers.
 class SparseTable {
@@ -56,5 +56,5 @@ class SparseTable {
     const int mBlockSize;
     const int mDataSize;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_SPARSE_TABLE_H */

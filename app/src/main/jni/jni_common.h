@@ -19,8 +19,8 @@
 
 #include "jni.h"
 
-namespace latinime {
+namespace kikaime {
 int registerNativeMethods(JNIEnv *env, const char *const className, const JNINativeMethod *methods,
         const int numMethods);
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_JNI_COMMON_H

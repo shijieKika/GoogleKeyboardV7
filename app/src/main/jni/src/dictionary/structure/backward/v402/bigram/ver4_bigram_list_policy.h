@@ -29,7 +29,7 @@
 #include "dictionary/interface/dictionary_bigrams_structure_policy.h"
 #include "dictionary/structure/backward/v402/content/bigram_entry.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -90,5 +90,5 @@ class Ver4BigramListPolicy : public DictionaryBigramsStructurePolicy {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_VER4_BIGRAM_LIST_POLICY_H */

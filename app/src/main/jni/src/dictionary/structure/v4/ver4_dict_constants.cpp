@@ -16,7 +16,7 @@
 
 #include "dictionary/structure/v4/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 
 const char *const Ver4DictConstants::BODY_FILE_EXTENSION = ".body";
 const char *const Ver4DictConstants::HEADER_FILE_EXTENSION = ".header";
@@ -69,4 +69,4 @@ const size_t Ver4DictConstants::NUM_OF_BUFFERS_FOR_SINGLE_DICT_CONTENT = 1;
 const size_t Ver4DictConstants::NUM_OF_BUFFERS_FOR_SPARSE_TABLE_DICT_CONTENT = 3;
 const size_t Ver4DictConstants::NUM_OF_BUFFERS_FOR_LANGUAGE_MODEL_DICT_CONTENT = 2;
 
-} // namespace latinime
+} // namespace kikaime

@@ -26,7 +26,7 @@
 #include "suggest/policyimpl/typing/scoring_params.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 struct DicNode_InputStateG;
@@ -227,5 +227,5 @@ class TypingWeighting : public Weighting {
     TypingWeighting() {}
     ~TypingWeighting() {}
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TYPING_WEIGHTING_H

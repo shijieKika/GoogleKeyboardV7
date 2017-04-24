@@ -25,7 +25,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * Helper class used to provide a read-only view of a given range of integer array. This class
@@ -169,5 +169,5 @@ using CodePointArrayView = IntArrayView;
 template <size_t size>
 using WordIdArray = std::array<int, size>;
 
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_MEMORY_VIEW_H

@@ -23,7 +23,7 @@
 #include "suggest/core/dictionary/error_type_utils.h"
 #include "suggest/core/session/dic_traverse_session.h"
 
-namespace latinime {
+namespace kikaime {
 
 class MultiBigramMap;
 
@@ -208,6 +208,7 @@ static inline void profile(const CorrectionType correctionType, DicNode *const n
     }
 }
 
+    // CT_TERMINAL CT_MATCH CT_COMPLETION CT_OMISSION CT_SKIP
     /* static */ void Weighting::addCostAndForwardInputIndexGesture(const Weighting *const weighting,
                                                                     const CorrectionType correctionType, const DicTraverseSession *const traverseSession,
                                                                     const DicNode *const parentDicNode, DicNode *const dicNode,
@@ -235,32 +236,14 @@ static inline void profile(const CorrectionType correctionType, DicNode *const n
                                                          const DicNode *const parentDicNode, const DicNode *const dicNode,
                                                          MultiBigramMap *const multiBigramMap) {
         switch(correctionType) {
-            case CT_OMISSION:
-                return 0.0f;
-            case CT_SUBSTITUTION:
-                return 0.0f;
-            case CT_NEW_WORD_SPACE_OMISSION:
-                return 0;
-            case CT_MATCH:
-                return 0.0f;
-            case CT_COMPLETION:
-                return 0.0f;
             case CT_TERMINAL: {
                 const float languageImprobability =
                         DicNodeUtils::getBigramNodeImprobability(
                                 traverseSession->getDictionaryStructurePolicy(), dicNode, multiBigramMap);
                 return weighting->getTerminalLanguageCost(traverseSession, dicNode, languageImprobability);
             }
-            case CT_TERMINAL_INSERTION:
-                return 0.0f;
-            case CT_NEW_WORD_SPACE_SUBSTITUTION:
-                return 0;
-            case CT_INSERTION:
-                return 0.0f;
-            case CT_TRANSPOSITION:
-                return 0.0f;
             default:
                 return 0.0f;
         }
     }
-}  // namespace latinime
+}  // namespace kikaime

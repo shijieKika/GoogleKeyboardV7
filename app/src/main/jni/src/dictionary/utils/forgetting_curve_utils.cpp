@@ -24,7 +24,7 @@
 #include "dictionary/utils/probability_utils.h"
 #include "utils/time_keeper.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int ForgettingCurveUtils::MULTIPLIER_TWO_IN_PROBABILITY_SCALE = 8;
 const int ForgettingCurveUtils::DECAY_INTERVAL_SECONDS = 2 * 60 * 60;
@@ -231,4 +231,4 @@ ForgettingCurveUtils::ProbabilityTable::ProbabilityTable() : mTables() {
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

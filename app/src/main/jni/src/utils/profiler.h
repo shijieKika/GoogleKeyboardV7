@@ -24,7 +24,7 @@
 #include <ctime>
 #include <unordered_map>
 
-namespace latinime {
+namespace kikaime {
 
 class Profiler final {
  public:
@@ -69,7 +69,7 @@ class Profiler final {
                 + static_cast<int64_t>(time.tv_nsec) / 1000;
     }
 };
-} // namespace latinime
+} // namespace kikaime
 
 #define PROF_INIT Profiler __LATINIME__PROFILER__(CLOCK_THREAD_CPUTIME_ID)
 #define PROF_TIMER_START(timer_id) __LATINIME__PROFILER__.startTimer(timer_id)

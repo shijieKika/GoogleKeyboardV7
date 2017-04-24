@@ -18,7 +18,7 @@
 
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 int TerminalPositionLookupTable::getTerminalPtNodePosition(const int terminalId) const {
     if (terminalId < 0 || terminalId >= mSize) {
@@ -95,4 +95,4 @@ bool TerminalPositionLookupTable::runGCTerminalIds(TerminalIdMap *const terminal
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

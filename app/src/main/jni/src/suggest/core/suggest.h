@@ -21,7 +21,7 @@
 #include "suggest/core/suggest_interface.h"
 #include "suggest/core/policy/suggest_policy.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Naming convention
 // - Distance: "Weighted" edit distance -- used both for spatial and language.
@@ -90,5 +90,5 @@ class Suggest : public SuggestInterface {
     const Scoring *const SCORING;
     const Weighting *const WEIGHTING;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SUGGEST_IMPL_H

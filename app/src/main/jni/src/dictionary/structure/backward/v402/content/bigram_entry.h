@@ -28,7 +28,7 @@
 #include "dictionary/property/historical_info.h"
 #include "dictionary/structure/backward/v402/ver4_dict_constants.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -106,5 +106,5 @@ class BigramEntry {
 };
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_BACKWARD_V402_BIGRAM_ENTRY_H */

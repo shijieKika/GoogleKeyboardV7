@@ -23,7 +23,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 class ProximityInfo;
 class ProximityInfoParams;
 
@@ -156,5 +156,5 @@ class ProximityInfoStateUtils {
             const std::vector<int> *const sampledInputXs,
             const std::vector<int> *const sampledInputYs, const int keyIndex, const int inputIndex);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_PROXIMITY_INFO_STATE_UTILS_H

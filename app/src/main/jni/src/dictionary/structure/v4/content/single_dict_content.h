@@ -25,7 +25,7 @@
 #include "dictionary/utils/dict_file_writing_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class SingleDictContent {
  public:
@@ -60,5 +60,5 @@ class SingleDictContent {
 
     BufferWithExtendableBuffer mExpandableContentBuffer;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_SINGLE_DICT_CONTENT_H */

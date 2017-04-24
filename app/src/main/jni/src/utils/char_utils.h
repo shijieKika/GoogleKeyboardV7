@@ -23,7 +23,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class CharUtils {
  public:
@@ -137,5 +137,5 @@ class CharUtils {
 
     static int latin_tolower(const int c);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_CHAR_UTILS_H

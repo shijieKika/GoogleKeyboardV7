@@ -22,7 +22,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class AdditionalProximityChars {
  private:
@@ -94,5 +94,5 @@ class AdditionalProximityChars {
         }
     }
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_ADDITIONAL_PROXIMITY_CHARS_H

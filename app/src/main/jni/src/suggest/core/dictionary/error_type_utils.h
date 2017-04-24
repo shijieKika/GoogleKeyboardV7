@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ErrorTypeUtils {
  public:
@@ -85,5 +85,5 @@ class ErrorTypeUtils {
     static const ErrorType ERRORS_TREATED_AS_A_PERFECT_MATCH;
     static const ErrorType ERRORS_TREATED_AS_AN_EXACT_MATCH_WITH_INTENTIONAL_OMISSION;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_ERROR_TYPE_UTILS_H

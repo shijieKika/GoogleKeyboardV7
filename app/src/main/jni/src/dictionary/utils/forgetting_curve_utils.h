@@ -23,7 +23,7 @@
 #include "dictionary/property/historical_info.h"
 #include "dictionary/utils/entry_counters.h"
 
-namespace latinime {
+namespace kikaime {
 
 class HeaderPolicy;
 
@@ -108,5 +108,5 @@ class ForgettingCurveUtils {
     static int clampToValidCountRange(const int count, const HeaderPolicy *const headerPolicy);
     static int clampToValidTimeStepCountRange(const int timeStepCount);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_FORGETTING_CURVE_UTILS_H */

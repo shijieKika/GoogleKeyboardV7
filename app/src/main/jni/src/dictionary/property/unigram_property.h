@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "dictionary/property/historical_info.h"
 
-namespace latinime {
+namespace kikaime {
 
 class UnigramProperty {
  public:
@@ -133,5 +133,5 @@ class UnigramProperty {
     const HistoricalInfo mHistoricalInfo;
     const std::vector<ShortcutProperty> mShortcuts;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_UNIGRAM_PROPERTY_H

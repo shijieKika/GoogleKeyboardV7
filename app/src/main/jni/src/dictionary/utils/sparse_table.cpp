@@ -16,7 +16,7 @@
 
 #include "dictionary/utils/sparse_table.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int SparseTable::NOT_EXIST = -1;
 const int SparseTable::INDEX_SIZE = 4;
@@ -98,4 +98,4 @@ int SparseTable::getPosInContentTable(const int id, const int index) const {
     return (index * mBlockSize + offset) * mDataSize;
 }
 
-} // namespace latinime
+} // namespace kikaime

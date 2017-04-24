@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicTraverseSession;
@@ -50,5 +50,5 @@ class Scoring {
  private:
     DISALLOW_COPY_AND_ASSIGN(Scoring);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SCORING_H

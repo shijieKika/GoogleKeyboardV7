@@ -18,7 +18,7 @@
 
 #include "utils/jni_data_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 void SuggestionResults::outputSuggestions(JNIEnv *env, jintArray outSuggestionCount,
         jintArray outputCodePointsArray, jintArray outScoresArray, jintArray outSpaceIndicesArray,
@@ -104,4 +104,4 @@ void SuggestionResults::dumpSuggestions() const {
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -29,7 +29,7 @@
 #include "suggest/core/suggest_interface.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryStructureWithBufferPolicy;
 class DicTraverseSession;
@@ -146,5 +146,5 @@ class Dictionary {
 
     void logDictionaryInfo(JNIEnv *const env) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DICTIONARY_H

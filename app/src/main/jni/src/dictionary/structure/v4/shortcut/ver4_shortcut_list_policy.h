@@ -23,7 +23,7 @@
 #include "dictionary/structure/v4/content/shortcut_dict_content.h"
 #include "dictionary/structure/v4/content/terminal_position_lookup_table.h"
 
-namespace latinime {
+namespace kikaime {
 
 class Ver4ShortcutListPolicy : public DictionaryShortcutsStructurePolicy {
  public:
@@ -102,5 +102,5 @@ class Ver4ShortcutListPolicy : public DictionaryShortcutsStructurePolicy {
 
     ShortcutDictContent *const mShortcutDictContent;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_VER4_SHORTCUT_LIST_POLICY_H

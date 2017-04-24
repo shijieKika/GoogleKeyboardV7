@@ -16,8 +16,8 @@
 
 #include "dictionary/utils/probability_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const float ProbabilityUtils::PROBABILITY_ENCODING_SCALER = 8.58923700372f;
 
-} // namespace latinime
+} // namespace kikaime

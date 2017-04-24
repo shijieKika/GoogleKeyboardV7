@@ -16,7 +16,7 @@
 
 #include "dictionary/structure/v4/content/dynamic_language_model_probability_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Used to provide stable probabilities even if the user's input count is small.
 const int DynamicLanguageModelProbabilityUtils::ASSUMED_MIN_COUNTS[] = {8192, 2, 2, 1};
@@ -31,4 +31,4 @@ const int DynamicLanguageModelProbabilityUtils::ENCODED_BACKOFF_WEIGHTS[] = {-32
 const int DynamicLanguageModelProbabilityUtils::DURATION_TO_DISCARD_ENTRY_IN_SECONDS =
         300 * 24 * 60 * 60; // 300 days
 
-} // namespace latinime
+} // namespace kikaime

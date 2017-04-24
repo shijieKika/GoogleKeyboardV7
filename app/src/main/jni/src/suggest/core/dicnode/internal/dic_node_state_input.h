@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 // TODO: Have a .cpp for this class
 class DicNodeStateInput {
@@ -90,5 +90,5 @@ class DicNodeStateInput {
     int mPrevCodePoint[MAX_POINTER_COUNT_G];
     float mTerminalDiffCost[MAX_POINTER_COUNT_G];
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_STATE_INPUT_H

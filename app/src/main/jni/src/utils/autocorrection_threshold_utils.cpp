@@ -23,7 +23,7 @@
 #include "suggest/policyimpl/utils/edit_distance.h"
 #include "suggest/policyimpl/utils/damerau_levenshtein_edit_distance_policy.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int AutocorrectionThresholdUtils::MAX_INITIAL_SCORE = 255;
 const int AutocorrectionThresholdUtils::TYPED_LETTER_MULTIPLIER = 2;
@@ -106,4 +106,4 @@ const int AutocorrectionThresholdUtils::FULL_WORD_MULTIPLIER = 2;
     return (static_cast<float>(score) / maxScore) * weight;
 }
 
-} // namespace latinime
+} // namespace kikaime

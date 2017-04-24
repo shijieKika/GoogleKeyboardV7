@@ -23,7 +23,7 @@
 #include "dictionary/structure/pt_common/pt_node_array_reader.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class Ver2PtNodeArrayReader : public PtNodeArrayReader {
  public:
@@ -39,5 +39,5 @@ class Ver2PtNodeArrayReader : public PtNodeArrayReader {
 
     const ReadOnlyByteArrayView mBuffer;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER2_PT_NODE_ARRAY_READER_H */

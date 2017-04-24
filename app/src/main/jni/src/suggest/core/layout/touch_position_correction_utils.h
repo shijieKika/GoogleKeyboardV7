@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "suggest/core/layout/proximity_info_params.h"
 
-namespace latinime {
+namespace kikaime {
 class TouchPositionCorrectionUtils {
  public:
     static float getSweetSpotFactor(const bool isTouchPositionCorrectionEnabled,
@@ -61,5 +61,5 @@ class TouchPositionCorrectionUtils {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(TouchPositionCorrectionUtils);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_TOUCH_POSITION_CORRECTION_UTILS_H

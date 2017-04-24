@@ -22,7 +22,7 @@
 #include "dictionary/interface/dictionary_header_structure_policy.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const DigraphUtils::digraph_t DigraphUtils::GERMAN_UMLAUT_DIGRAPHS[] =
         { { 'a', 'e', 0x00E4 }, // U+00E4 : LATIN SMALL LETTER A WITH DIAERESIS
@@ -118,4 +118,4 @@ const DigraphUtils::DigraphType DigraphUtils::USED_DIGRAPH_TYPES[] =
     return nullptr;
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -23,7 +23,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Class to have information to be output. This can contain previous words when the suggestion
 // is a multi-word suggestion.
@@ -147,5 +147,5 @@ class DicNodeStateOutput {
     int16_t mPrevWordStart;
     int mSecondWordFirstInputIndex;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_STATE_OUTPUT_H

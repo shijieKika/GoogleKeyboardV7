@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ShortcutListReadingUtils {
  public:
@@ -68,5 +68,5 @@ class ShortcutListReadingUtils {
     static const int SHORTCUT_LIST_SIZE_FIELD_SIZE;
     static const int WHITELIST_SHORTCUT_PROBABILITY;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SHORTCUT_LIST_READING_UTILS_H

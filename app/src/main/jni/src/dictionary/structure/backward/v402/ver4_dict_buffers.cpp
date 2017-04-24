@@ -32,7 +32,7 @@
 #include "dictionary/utils/file_utils.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -154,4 +154,4 @@ Ver4DictBuffers::Ver4DictBuffers(const HeaderPolicy *const headerPolicy, const i
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

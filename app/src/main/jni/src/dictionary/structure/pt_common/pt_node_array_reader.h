@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 // Interface class used to read PtNode array information.
 class PtNodeArrayReader {
@@ -41,5 +41,5 @@ class PtNodeArrayReader {
  private:
     DISALLOW_COPY_AND_ASSIGN(PtNodeArrayReader);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_PT_NODE_READER_H */

@@ -22,7 +22,7 @@
 #include "dictionary/property/ngram_context.h"
 #include "suggest/core/dictionary/dictionary.h"
 
-namespace latinime {
+namespace kikaime {
 
 // 256K bytes threshold is heuristically used to distinguish dictionaries containing many unigrams
 // (e.g. main dictionary) from small dictionaries (e.g. contacts...)
@@ -79,4 +79,4 @@ void DicTraverseSession::initializeProximityInfoStates(const int *const inputCod
         mInputSize += mProximityInfoStates[i].size();
     }
 }
-} // namespace latinime
+} // namespace kikaime

@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "dictionary/property/word_attributes.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BinaryDictionaryShortcutIterator;
 class DicNode;
@@ -70,5 +70,5 @@ class SuggestionsOutputUtils {
             SuggestionResults *const outSuggestionResults);
     static int computeFirstWordConfidence(const DicNode *const terminalDicNode);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SUGGESTIONS_OUTPUT_UTILS

@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * Methods to handle binary dictionary format version.
@@ -55,5 +55,5 @@ class FormatUtils {
 
     static const size_t DICTIONARY_MINIMUM_SIZE;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_FORMAT_UTILS_H */

@@ -31,7 +31,7 @@
 #include "utils/byte_array_view.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class HeaderPolicy;
 
@@ -254,5 +254,5 @@ class LanguageModelDictContent {
             const int bitmapEntryIndex, std::vector<int> *const prevWordIds,
             std::vector<DumppedFullEntryInfo> *const outBummpedFullEntryInfo) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_LANGUAGE_MODEL_DICT_CONTENT_H */

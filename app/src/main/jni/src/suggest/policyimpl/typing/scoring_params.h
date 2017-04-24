@@ -19,7 +19,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 class ScoringParams {
  public:
@@ -77,5 +77,5 @@ class ScoringParams {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(ScoringParams);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_SCORING_PARAMS_H

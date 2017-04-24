@@ -18,7 +18,7 @@
 
 #include <ctime>
 
-namespace latinime {
+namespace kikaime {
 
 int TimeKeeper::sCurrentTime;
 bool TimeKeeper::sSetForTesting;
@@ -38,4 +38,4 @@ bool TimeKeeper::sSetForTesting;
     sSetForTesting = false;
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -20,7 +20,7 @@
 #include "dictionary/structure/pt_common/patricia_trie_reading_utils.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 bool Ver4PtNodeArrayReader::readPtNodeArrayInfoAndReturnIfValid(const int ptNodeArrayPos,
         int *const outPtNodeCount, int *const outFirstPtNodePos) const {
@@ -76,4 +76,4 @@ bool Ver4PtNodeArrayReader::readForwardLinkAndReturnIfValid(const int forwordLin
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryStructureWithBufferPolicy;
 
@@ -74,5 +74,5 @@ class NgramContext {
     int mPrevWordCodePointCount[MAX_PREV_WORD_COUNT_FOR_N_GRAM];
     bool mIsBeginningOfSentence[MAX_PREV_WORD_COUNT_FOR_N_GRAM];
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_NGRAM_CONTEXT_H

@@ -23,7 +23,7 @@
 #include "dictionary/structure/pt_common/pt_node_writer.h"
 #include "dictionary/structure/v4/content/probability_entry.h"
 
-namespace latinime {
+namespace kikaime {
 
 class BufferWithExtendableBuffer;
 class HeaderPolicy;
@@ -104,5 +104,5 @@ class Ver4PatriciaTrieNodeWriter : public PtNodeWriter {
     DynamicPtReadingHelper mReadingHelper;
     Ver4ShortcutListPolicy *const mShortcutPolicy;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_VER4_PATRICIA_TRIE_NODE_WRITER_H */

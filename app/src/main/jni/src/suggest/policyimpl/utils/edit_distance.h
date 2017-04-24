@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "suggest/policyimpl/utils/edit_distance_policy.h"
 
-namespace latinime {
+namespace kikaime {
 
 class EditDistance {
  public:
@@ -87,6 +87,6 @@ class EditDistance {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(EditDistance);
 };
-} // namespace latinime
+} // namespace kikaime
 
 #endif  // LATINIME_EDIT_DISTANCE_H

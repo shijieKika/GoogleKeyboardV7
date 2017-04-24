@@ -19,7 +19,7 @@
 
 #include "jni.h"
 
-namespace latinime {
+namespace kikaime {
 int register_BinaryDictionary(JNIEnv *env);
-} // namespace latinime
+} // namespace kikaime
 #endif // _COM_ANDROID_INPUTMETHOD_LATIN_BINARYDICTIONARY_H

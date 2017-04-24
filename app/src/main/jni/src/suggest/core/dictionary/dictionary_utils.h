@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryStructureWithBufferPolicy;
 class DicNode;
@@ -41,5 +41,5 @@ class DictionaryUtils {
             const int inputCodePoint, const DicNode *const parentDicNode,
             std::vector<DicNode> *const outDicNodes);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DICTIONARY_UTILS_H

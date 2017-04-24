@@ -22,7 +22,7 @@
 #include "defines.h"
 #include "suggest/core/dictionary/dictionary.h"
 
-namespace latinime {
+namespace kikaime {
 
 class SuggestedWord {
  public:
@@ -79,5 +79,5 @@ class SuggestedWord {
     int mIndexToPartialCommit;
     int mAutoCommitFirstWordConfidence;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_SUGGESTED_WORD_H */

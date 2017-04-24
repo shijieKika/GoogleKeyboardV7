@@ -21,7 +21,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 // This bloom filter is used for optimizing bigram retrieval.
 // Execution times with previous word "this" are as follows:
@@ -65,5 +65,5 @@ class BloomFilter {
     static const size_t BIGRAM_FILTER_MODULO = 1021;
     std::bitset<BIGRAM_FILTER_MODULO> mFilter;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_BLOOM_FILTER_H

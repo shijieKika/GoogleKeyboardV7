@@ -27,7 +27,7 @@
 #include "jni.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class JniDataUtils {
  public:
@@ -153,5 +153,5 @@ class JniDataUtils {
     static const int CODE_POINT_REPLACEMENT_CHARACTER;
     static const int CODE_POINT_NULL;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_JNI_DATA_UTILS_H

@@ -23,7 +23,7 @@
 #include "dictionary/structure/pt_common/pt_node_params.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class NgramProperty;
 class UnigramProperty;
@@ -93,5 +93,5 @@ class PtNodeWriter {
  private:
     DISALLOW_COPY_AND_ASSIGN(PtNodeWriter);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_PT_NODE_WRITER_H */

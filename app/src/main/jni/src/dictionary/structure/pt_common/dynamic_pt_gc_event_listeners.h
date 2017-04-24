@@ -24,7 +24,7 @@
 #include "dictionary/structure/pt_common/pt_node_writer.h"
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 class PtNodeParams;
 
@@ -169,5 +169,5 @@ class DynamicPtGcEventListeners {
  private:
     DISALLOW_IMPLICIT_CONSTRUCTORS(DynamicPtGcEventListeners);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_DYNAMIC_PT_GC_EVENT_LISTENERS_H */

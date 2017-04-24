@@ -26,7 +26,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 /**
  * Trie map derived from Phil Bagwell's Hash Array Mapped Trie.
@@ -395,5 +395,5 @@ class TrieMap {
     bool removeInner(const Entry &bitmapEntry);
 };
 
-} // namespace latinime
+} // namespace kikaime
 #endif /* LATINIME_TRIE_MAP_H */

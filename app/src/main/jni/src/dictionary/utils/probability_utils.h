@@ -22,7 +22,7 @@
 
 #include "defines.h"
 
-namespace latinime {
+namespace kikaime {
 
 // TODO: Quit using bigram probability to indicate the delta.
 class ProbabilityUtils {

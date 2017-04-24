@@ -33,7 +33,7 @@
 #include "dictionary/utils/entry_counters.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicNodeVector;
@@ -145,5 +145,5 @@ class Ver4PatriciaTriePolicy : public DictionaryStructureWithBufferPolicy {
 
     int getShortcutPositionOfWord(const int wordId) const;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_VER4_PATRICIA_TRIE_POLICY_H

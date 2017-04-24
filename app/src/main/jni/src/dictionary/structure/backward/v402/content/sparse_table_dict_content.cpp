@@ -23,7 +23,7 @@
 
 #include "dictionary/structure/backward/v402/content/sparse_table_dict_content.h"
 
-namespace latinime {
+namespace kikaime {
 namespace backward {
 namespace v402 {
 
@@ -47,4 +47,4 @@ bool SparseTableDictContent::flush(const char *const dictPath,
 
 } // namespace v402
 } // namespace backward
-} // namespace latinime
+} // namespace kikaime

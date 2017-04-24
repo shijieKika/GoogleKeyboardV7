@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "suggest/core/dictionary/error_type_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNode;
 class DicTraverseSession;
@@ -120,5 +120,5 @@ class Weighting {
     // TODO: Move to TypingWeighting and GestureWeighting?
     static int getForwardInputCount(const CorrectionType correctionType);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_WEIGHTING_H

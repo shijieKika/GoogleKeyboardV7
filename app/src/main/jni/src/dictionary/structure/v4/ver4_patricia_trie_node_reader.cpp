@@ -25,7 +25,7 @@
 #include "dictionary/utils/buffer_with_extendable_buffer.h"
 #include "dictionary/utils/forgetting_curve_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const PtNodeParams Ver4PatriciaTrieNodeReader::fetchPtNodeInfoFromBufferAndProcessMovedPtNode(
         const int ptNodePos, const int siblingNodePos) const {
@@ -88,4 +88,4 @@ const PtNodeParams Ver4PatriciaTrieNodeReader::fetchPtNodeInfoFromBufferAndProce
     }
 }
 
-} // namespace latinime
+} // namespace kikaime

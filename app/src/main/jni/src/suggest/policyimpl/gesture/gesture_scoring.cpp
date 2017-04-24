@@ -5,6 +5,6 @@
 
 #include "suggest/policyimpl/gesture/gesture_scoring.h"
 
-namespace latinime {
+namespace kikaime {
     const GestureScoring GestureScoring::sInstance;
-}  // namespace latinime
+}  // namespace kikaime

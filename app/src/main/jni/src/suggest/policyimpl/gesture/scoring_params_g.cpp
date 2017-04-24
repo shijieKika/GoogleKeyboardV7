@@ -4,7 +4,7 @@
 
 #include "suggest/policyimpl/gesture/scoring_params_g.h"
 
-namespace latinime {
+namespace kikaime {
     const float ScoringParamsG::COST_FIRST_COMPLETION = 1.0f;
     const float ScoringParamsG::COST_COMPLETION = 0.5f;
     const float ScoringParamsG::NORMALIZED_SPATIAL_DISTANCE_THRESHOLD_FOR_EDIT = 0.5f;
@@ -26,5 +26,5 @@ namespace latinime {
 
     // 该点是否跳过的阈值，含义为概率的负对数
     const float ScoringParamsG::THRESHOLD_FOR_SKIP = 1.5f;
-} // namespace latinime
+} // namespace kikaime
 

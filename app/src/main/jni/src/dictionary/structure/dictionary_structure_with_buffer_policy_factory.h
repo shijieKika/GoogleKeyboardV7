@@ -25,7 +25,7 @@
 #include "dictionary/utils/format_utils.h"
 #include "dictionary/utils/mmapped_buffer.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DictionaryStructureWithBufferPolicyFactory {
  public:
@@ -60,5 +60,5 @@ class DictionaryStructureWithBufferPolicyFactory {
     static void getHeaderFilePathInDictDir(const char *const dirPath,
             const int outHeaderFileBufSize, char *const outHeaderFilePath);
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DICTIONARY_STRUCTURE_WITH_BUFFER_POLICY_FACTORY_H

@@ -18,7 +18,7 @@
 
 #include "dictionary/utils/dict_file_writing_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 const int SparseTableDictContent::LOOKUP_TABLE_BUFFER_INDEX = 0;
 const int SparseTableDictContent::ADDRESS_TABLE_BUFFER_INDEX = 1;
@@ -37,4 +37,4 @@ bool SparseTableDictContent::flush(FILE *const file) const {
     return true;
 }
 
-} // namespace latinime
+} // namespace kikaime

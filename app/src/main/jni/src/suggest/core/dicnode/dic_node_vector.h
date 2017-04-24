@@ -23,7 +23,7 @@
 #include "suggest/core/dicnode/dic_node.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class DicNodeVector {
  public:
@@ -81,5 +81,5 @@ class DicNodeVector {
     std::vector<DicNode> mDicNodes;
     bool mLock;
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_NODE_VECTOR_H

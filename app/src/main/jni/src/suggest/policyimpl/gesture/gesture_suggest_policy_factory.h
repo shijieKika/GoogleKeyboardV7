@@ -20,7 +20,7 @@
 #include "defines.h"
 #include "gesture_suggest_policy.h"
 
-namespace latinime {
+namespace kikaime {
 
 class SuggestPolicy;
 
@@ -35,5 +35,5 @@ class SuggestPolicy;
     private:
         DISALLOW_COPY_AND_ASSIGN(GestureSuggestPolicyFactory);
     };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_GESTURE_SUGGEST_POLICY_FACTORY_H

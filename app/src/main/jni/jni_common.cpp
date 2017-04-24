@@ -39,19 +39,19 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
         AKLOGE("ERROR: JNIEnv is invalid");
         return -1;
     }
-    if (!latinime::register_BinaryDictionary(env)) {
+    if (!kikaime::register_BinaryDictionary(env)) {
         AKLOGE("ERROR: BinaryDictionary native registration failed");
         return -1;
     }
-    if (!latinime::register_BinaryDictionaryUtils(env)) {
+    if (!kikaime::register_BinaryDictionaryUtils(env)) {
         AKLOGE("ERROR: BinaryDictionaryUtils native registration failed");
         return -1;
     }
-    if (!latinime::register_DicTraverseSession(env)) {
+    if (!kikaime::register_DicTraverseSession(env)) {
         AKLOGE("ERROR: DicTraverseSession native registration failed");
         return -1;
     }
-    if (!latinime::register_ProximityInfo(env)) {
+    if (!kikaime::register_ProximityInfo(env)) {
         AKLOGE("ERROR: ProximityInfo native registration failed");
         return -1;
     }
@@ -59,7 +59,7 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     return JNI_VERSION_1_6;
 }
 
-namespace latinime {
+namespace kikaime {
 int registerNativeMethods(JNIEnv *env, const char *const className, const JNINativeMethod *methods,
         const int numMethods) {
     jclass clazz = env->FindClass(className);
@@ -75,4 +75,4 @@ int registerNativeMethods(JNIEnv *env, const char *const className, const JNINat
     env->DeleteLocalRef(clazz);
     return JNI_TRUE;
 }
-} // namespace latinime
+} // namespace kikaime

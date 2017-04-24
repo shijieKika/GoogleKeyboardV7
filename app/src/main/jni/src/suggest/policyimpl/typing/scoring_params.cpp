@@ -16,7 +16,7 @@
 
 #include "suggest/policyimpl/typing/scoring_params.h"
 
-namespace latinime {
+namespace kikaime {
 // TODO: RENAME all
 const float ScoringParams::MAX_SPATIAL_DISTANCE = 1.0f;
 const int ScoringParams::THRESHOLD_NEXT_WORD_PROBABILITY = 40;
@@ -66,4 +66,4 @@ const float ScoringParams::NORMALIZED_SPATIAL_DISTANCE_THRESHOLD_FOR_EDIT = 0.09
 const float ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SPACE_SUBSTITUTION = 0.99f;
 const float ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SPACE_OMISSION = 0.99f;
 const float ScoringParams::LOCALE_WEIGHT_THRESHOLD_FOR_SMALL_CACHE_SIZE = 0.99f;
-} // namespace latinime
+} // namespace kikaime

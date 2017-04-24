@@ -26,7 +26,7 @@
 #include "suggest/core/layout/proximity_info_state.h"
 #include "utils/int_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class Dictionary;
 class DictionaryStructureWithBufferPolicy;
@@ -185,5 +185,5 @@ class DicTraverseSession {
     float mMultiWordCostMultiplier;
 
 };
-} // namespace latinime
+} // namespace kikaime
 #endif // LATINIME_DIC_TRAVERSE_SESSION_H

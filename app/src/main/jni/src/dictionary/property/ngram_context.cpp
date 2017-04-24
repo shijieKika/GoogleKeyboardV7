@@ -19,7 +19,7 @@
 #include "dictionary/interface/dictionary_structure_with_buffer_policy.h"
 #include "utils/char_utils.h"
 
-namespace latinime {
+namespace kikaime {
 
 NgramContext::NgramContext() : mPrevWordCount(0) {}
 
@@ -120,4 +120,4 @@ void NgramContext::clear() {
         mIsBeginningOfSentence[i] = false;
     }
 }
-} // namespace latinime
+} // namespace kikaime

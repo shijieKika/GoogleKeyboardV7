@@ -23,7 +23,7 @@
 #include "defines.h"
 #include "utils/byte_array_view.h"
 
-namespace latinime {
+namespace kikaime {
 
 class MmappedBuffer {
  public:
